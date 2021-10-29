@@ -1,23 +1,23 @@
 const express = require('express');
-const mongoose = require('mongoose');
-const app = express();
+const conectDB = require('./config/db');
+const cors = require('cors');
 const vuelo_route = require('./route/vuelo');
 const reserva_route = require('./route/reserva');
 
-//Conexion a base de datos
-mongoose.connect("mongodb://localhost/skylinedb");
+//creacion server
+const app = express();
 
-mongoose.connection.on("error", function (e) {
-    console.log("Error");
-});
-
-mongoose.connection.once("open", function (e) {
-    console.log("Conexion exitosa");
-});
+//coneccion a la base de datos
+conectDB();
+app.use(cors());
+app.use(express.json())
 
 //Rutas
 app.use("/vuelo/",vuelo_route);
 app.use("/reserva/",reserva_route);
+app.use('/user',require('./route/user'));
 
 //Puerto del servidor
-app.listen(3000);
+app.listen(8080,()=>{
+    console.log('servidor iniciado correctamente');
+})
