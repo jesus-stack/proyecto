@@ -3,11 +3,17 @@ const express = require('express');
 const userController = require('../controller/user');
 const Router =express.Router();
 
+const auth = require('../middleware/user');
+
 //obtener
-Router.get('/',userController.getuser)
+Router.get('/all',auth ,userController.getuser)
+//sigin
+Router.get('/',userController.signin)
+//obtener
+Router.post('/',userController.signup)
 
 //crear
-Router.post('/',userController.createuser)
+//Router.post('/',userController.createuser)
 
 //eliminar
 Router.delete('/:id',userController.deleteuser)
