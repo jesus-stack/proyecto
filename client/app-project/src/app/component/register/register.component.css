@@ -52,3 +52,13 @@ select.form-control {
 .form-control:focus {
   box-shadow: none;
 }
+
+.register{
+  max-width: 45rem;
+}
+
+.register div h1{
+  font-size: 2rem;
+  font-family: "Nunito", sans-serif;
+  font-weight: bold;
+}
