@@ -5,3 +5,26 @@
 .log{
   background-color: gray !important;
 }
+
+.navbar-responsive{
+  padding: 1rem 0;
+  background-color: white !important;
+}
+
+.navbar-responsive ul li{
+  list-style: none;
+  margin-bottom: .7rem;
+}
+
+.navbar-responsive ul li:last-child a{
+  padding: 0.8rem 0.8rem;
+  border-radius: 5px;
+}
+
+.navbar-responsive ul li:last-child{
+  padding: 1.2rem 1rem;
+}
+
+.navbar-responsive-logo{
+  padding: 0;
+}
