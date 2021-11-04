@@ -6,11 +6,11 @@ const Router =express.Router();
 const auth = require('../middleware/user');
 
 //obtener
-Router.get('/all',auth ,userController.getuser)
+Router.get('/all' ,userController.getuser)
 //sigin
-Router.get('/',userController.signin)
+Router.post('/signin',userController.signin)
 //obtener
-Router.post('/',userController.signup)
+Router.post('/signup',userController.signup)
 
 //crear
 //Router.post('/',userController.createuser)
