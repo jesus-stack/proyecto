@@ -8,6 +8,7 @@ import { HomeComponent } from './component/home/home.component';
 import { RegisterComponent } from './component/register/register.component';
 import { LoginComponent } from './component/login/login.component';
 import { CheckInComponent } from './component/check-in/check-in.component';
+import { FlightManagementComponent } from './component/flight-management/flight-management.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { CheckInComponent } from './component/check-in/check-in.component';
     HomeComponent,
     RegisterComponent,
     LoginComponent,
-    CheckInComponent
+    CheckInComponent,
+    FlightManagementComponent
   ],
   imports: [
     BrowserModule,
