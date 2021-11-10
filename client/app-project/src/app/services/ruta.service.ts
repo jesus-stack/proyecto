@@ -5,15 +5,15 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class TipoAvionService {
+export class RutaService {
 
-  URL = 'http://localhost:8080/tipoAvion'
+  URL = 'http://localhost:8080/ruta'
 
   constructor(private http: HttpClient) { 
 
   }
 
-  getTiposAviones(): Observable<any>{
+  getRutas(): Observable<any>{
     return this.http.get(this.URL);
   }
 
