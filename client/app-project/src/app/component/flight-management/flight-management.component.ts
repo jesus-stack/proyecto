@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TipoAvionService } from '../../services/tipo-avion.service';
+import { RutaService } from '../../services/ruta.service';
 
 @Component({
   selector: 'app-flight-management',
@@ -9,10 +10,12 @@ import { TipoAvionService } from '../../services/tipo-avion.service';
 export class FlightManagementComponent implements OnInit {
 
   tiposAviones = <any>[];
+  rutas = <any>[];
 
-  constructor(private tipoAvionService: TipoAvionService) { }
+  constructor(private tipoAvionService: TipoAvionService, private rutaService: RutaService) { }
 
   ngOnInit(): void {
+    //this.getRutas();
     this.getTiposAviones();
   }
 
@@ -20,7 +23,15 @@ export class FlightManagementComponent implements OnInit {
     this.tipoAvionService.getTiposAviones().subscribe(
       response => {
         this.tiposAviones = response;
-        console.log(this.tiposAviones);
+      },
+      error => console.log(error)
+    );
+  }
+
+  getRutas(){
+    this.rutaService.getRutas().subscribe(
+      response => {
+        this.rutas = response;
       },
       error => console.log(error)
     );
