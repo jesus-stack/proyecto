@@ -5,7 +5,7 @@ var schema = new Schema(
         dia: String,
         hora: String,
         precio: String,
-        hora_Llegada: String        
+        hora_Llegada: String 
     }
 );
 

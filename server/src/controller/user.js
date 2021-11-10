@@ -37,9 +37,9 @@ userController.signup = async (req, res, next) => {
         // save the user
         newUser.save(function (err) {
             if (err) {
-                return res.json({ success: false, msg: 'Useruser already exists.' });
+                return res.json({ success: false, msg: ' Nombre de Usuario ya existe.' });
             }
-            res.json({ success: true, msg: 'Successful created new user.' });
+            res.json({ success: true, msg: 'Se ha creado el usuario exitosamente' });
         });
     }
 };
@@ -52,24 +52,24 @@ userController.signin = async (req, res, next) => {
     const newuser = await model.findOne({ user: user }).exec();
 
     if (!newuser) {
-        res.status(401).send({ success: false, msg: 'Authentication failed. User not found.' });
+        res.json({ success: false, msg: 'Autenticacion Fallida,Usuario no Encontrado.' });
     } else {
         //Si el usuario existe verifica si las contraseñas
         newuser.comparePassword(password, newuser.password, function (err, isMatch) {
             if (isMatch && !err) {
               // Si el usuario es correcto y la contraseña coindice se procede a crear el token
               const token = jwt.sign(
-                { user: user },
+                { user: newuser },
                 config.SECRETWORDJWT,
                 { expiresIn: "2h" }
               );
               // return the information including token as JSON
-              const payload = { role: user.role, user: user.user };
-              res.json({ success: true, token: token, user: payload });
+              const payload = { role: newuser.role, user: newuser.user };
+              res.json({ success: true, token: token, user: payload});
             } else {
                 //si la contraseña no coincide se procede a indicar el error
                 //res.status(401).send({ success: false, msg: 'Authentication failed. Wrong password.' });
-                res.json({ success: false, msg: 'Authentication failed. Wrong password.' });
+                res.json({ success: false, msg: 'Autenticacion Fallida,Contraseña incorrecta.' });
             }
         });
     }
