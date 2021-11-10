@@ -14,6 +14,7 @@ app.use(express.json())
 app.use("/vuelo/",require('./route/vuelo'));
 app.use("/reserva/",require('./route/reserva'));
 app.use('/user',require('./route/user'));
+app.use('/compra',require('./route/compra'));
 
 //Puerto del servidor
 app.listen(8080,()=>{
