@@ -27,7 +27,7 @@ import { UsuariosComponent } from './component/admin-home/usuarios/usuarios.comp
     RegisterComponent,
     LoginComponent,
     AdminHomeComponent,
-    UsuariosComponent
+    UsuariosComponent,
     LoginComponent,
     CheckInComponent,
     FlightManagementComponent
