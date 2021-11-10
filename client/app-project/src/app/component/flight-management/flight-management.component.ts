@@ -8,10 +8,22 @@ import { TipoAvionService } from '../../services/tipo-avion.service';
 })
 export class FlightManagementComponent implements OnInit {
 
+  tiposAviones = <any>[];
+
   constructor(private tipoAvionService: TipoAvionService) { }
 
   ngOnInit(): void {
-    console.log(this.tipoAvionService.getTiposAviones());
+    this.getTiposAviones();
+  }
+
+  getTiposAviones(){
+    this.tipoAvionService.getTiposAviones().subscribe(
+      response => {
+        this.tiposAviones = response;
+        console.log(this.tiposAviones);
+      },
+      error => console.log(error)
+    );
   }
 
 }
