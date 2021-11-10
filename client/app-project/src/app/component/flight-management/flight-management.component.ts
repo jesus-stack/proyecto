@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TipoAvionService } from '../../services/tipo-avion.service';
 
 @Component({
   selector: 'app-flight-management',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FlightManagementComponent implements OnInit {
 
-  constructor() { }
+  constructor(private tipoAvionService: TipoAvionService) { }
 
   ngOnInit(): void {
+    console.log(this.tipoAvionService.getTiposAviones());
   }
 
 }
