@@ -15,7 +15,7 @@ import { AdminHomeComponent } from './component/admin-home/admin-home.component'
 import { CheckInComponent } from './component/check-in/check-in.component';
 import { FlightManagementComponent } from './component/flight-management/flight-management.component';
 
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { UsuariosComponent } from './component/admin-home/usuarios/usuarios.component';
 
 @NgModule({
@@ -37,8 +37,8 @@ import { UsuariosComponent } from './component/admin-home/usuarios/usuarios.comp
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-     ToastrModule.forRoot(),
-     BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
