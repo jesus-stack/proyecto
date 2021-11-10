@@ -10,9 +10,9 @@ const auth = require('../middleware/user');
 
 Router.get('/' ,userController.getuser)
 //sigin
-Router.get('/',userController.signin)
+Router.post('/signin',userController.signin)
 //obtener
-Router.post('/',userController.signup)
+Router.post('/signup',userController.signup)
 
 //crear
 //Router.post('/',userController.createuser)
