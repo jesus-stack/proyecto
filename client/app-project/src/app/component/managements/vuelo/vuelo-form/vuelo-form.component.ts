@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TipoAvionService } from '../../../../services/tipo-avion.service';
 import { RutaService } from '../../../../services/ruta.service';
 import { VueloService } from '../../../../services/vuelo.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-vuelo-form',
@@ -10,6 +12,13 @@ import { VueloService } from '../../../../services/vuelo.service';
 })
 export class VueloFormComponent implements OnInit {
 
+  postForm = new FormGroup({
+    ruta: new FormControl(this.getRutas, Validators.required),
+    tipoAvion: new FormControl(this.getTiposAviones, Validators.required),
+    dia: new FormControl('', Validators.required),
+    hora: new FormControl('', Validators.required),
+  });
+
   tiposAviones = <any>[];
   rutas = <any>[];
 
@@ -17,6 +26,7 @@ export class VueloFormComponent implements OnInit {
     private tipoAvionService: TipoAvionService,
     private rutaService: RutaService,
     private vueloService: VueloService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -42,11 +52,18 @@ export class VueloFormComponent implements OnInit {
     );
   }
 
-  /*addVuelo(form: NgForm) {
-    this.vueloService.createVuelo(form.value).subscribe(
-      response => console.log(response),
-      error => console.log(error)
-    )
-  }*/
-
+  submitForm(){
+    if(this.postForm.valid){
+      this.vueloService.createVuelo(this.postForm.value).subscribe(
+        response => {
+          alert("Vuelo Guardado");
+          this.router.navigate(['/']);
+        },
+        error => console.log(error)
+      )
+    }else{
+      alert("Ha ocurrido un error");
+    }
+    
+  }
 }

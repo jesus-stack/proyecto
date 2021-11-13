@@ -19,6 +19,8 @@ import { FormsModule } from '@angular/forms';
 import { UsuariosComponent } from './component/admin-home/usuarios/usuarios.component';
 import { VueloListComponent } from './component/managements/vuelo/vuelo-list/vuelo-list.component';
 import { VueloFormComponent } from './component/managements/vuelo/vuelo-form/vuelo-form.component';
+import { ReservaFormComponent } from './component/managements/reserva/reserva-form/reserva-form.component';
+import { ReservaListComponent } from './component/managements/reserva/reserva-list/reserva-list.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import { VueloFormComponent } from './component/managements/vuelo/vuelo-form/vue
     CheckInComponent,
     VueloListComponent,
     VueloFormComponent,
+    ReservaFormComponent,
+    ReservaListComponent,
   ],
   imports: [
     BrowserModule,
