@@ -1,7 +1,8 @@
 const vueloModel = require('../model/vuelo');
+const rutaModel = require('../model/ruta');
 
 module.exports.getAll = async (req, res, next) => {
-    const vuelos = await vueloModel.find().exec();
+    const vuelos = await vueloModel.find().populate('ruta').populate('tipoAvion').exec();
     res.json(vuelos);
 };
 
@@ -11,9 +12,18 @@ module.exports.getById = async (req, res, next) => {
     res.json(vuelo);
 };
 
-module.exports.create = (req, res, next) => {
-    const { ruta, tipoAvion, horario } = req.body;
-    const vuelo = new vueloModel({ ruta, tipoAvion, horario });
+module.exports.create = async (req, res, next) => {
+    
+    const { ruta, tipoAvion, dia, hora } = req.body;
+
+    const rutaTemp = await rutaModel.findById(ruta);
+    const diaTemp = new Date(dia);
+    const time = new Date(diaTemp.getTime() + parseInt(hora.substr(0,hora.indexOf(":")))*60000);
+    time.setTime(time.getTime() + parseInt(rutaTemp.duracion)*60000);
+
+    horaLlegada = time.getMinutes() + ':' + hora.substr(hora.indexOf(":")+1);
+
+    const vuelo = new vueloModel({ ruta, tipoAvion, dia, hora, horaLlegada });
     vuelo.save();
     res.json(vuelo);
 };
@@ -29,13 +39,13 @@ module.exports.delete = async (req, res, next) => {
 
 module.exports.update = async (req, res, next) => {
 
-    const { ruta, tipoAvion, horario } = req.body;
+    const { ruta, tipoAvion, dia, hora } = req.body;
     const vuelo = await vueloModel.findOneAndUpdate(
         { 
             _id: req.params.id 
         },
         { 
-            ruta, tipoAvion, horario
+            ruta, tipoAvion, dia, hora
         },
         { 
             new: true

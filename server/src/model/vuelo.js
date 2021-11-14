@@ -11,7 +11,8 @@ var schema = new Schema(
             ref: "tipoAvion"
         },
         dia: String,
-        hora: String
+        hora: String,
+        horaLlegada: String
     }
 );
 

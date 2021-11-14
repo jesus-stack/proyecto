@@ -18,7 +18,8 @@ const routes: Routes = [
   { path: 'admin-home', component: AdminHomeComponent },
   { path: 'usuarios', component: UsuariosComponent },
   { path: 'check-in', component: CheckInComponent },
-  { path: 'vuelo', component: VueloFormComponent },
+  { path: 'vuelo/list', component: VueloListComponent },
+  { path: 'vuelo/form', component: VueloFormComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 

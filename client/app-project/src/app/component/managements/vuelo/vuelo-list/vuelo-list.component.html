@@ -6,17 +6,19 @@
                 <th scope="col">Tipo Avion</th>
                 <th scope="col">Dia</th>
                 <th scope="col">Hora</th>
+                <th scope="col">Hora de Llegada</th>
                 <th scope="col">Opciones</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let x of vuelos">
-                <td>{{ x.ruta }}</td>
-                <td>{{ x.tipoAvion }}</td>
+                <td>{{ x.ruta.origen }} - {{ x.ruta.destino }}</td>
+                <td>{{ x.tipoAvion.modelo }} Año: {{ x.tipoAvion.anio }}</td>
                 <td>{{ x.dia }}</td>
                 <td>{{ x.hora }}</td>
+                <td>{{ x.horaLlegada }}</td>
                 <td>
-                    <a href="">Editar</a>
+                    <a href="">Editar </a>
                     <a href="">Eliminar</a>
                 </td>
             </tr>

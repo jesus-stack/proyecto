@@ -57,13 +57,12 @@ export class VueloFormComponent implements OnInit {
       this.vueloService.createVuelo(this.postForm.value).subscribe(
         response => {
           alert("Vuelo Guardado");
-          this.router.navigate(['/']);
+          this.router.navigate(['vuelo/list']);
         },
         error => console.log(error)
       )
     }else{
       alert("Ha ocurrido un error");
     }
-    
   }
 }
