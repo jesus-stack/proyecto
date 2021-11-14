@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FlightManagementComponent } from './flight-management.component';
+import { ReservaFormComponent } from './reserva-form.component';
 
-describe('FlightManagementComponent', () => {
-  let component: FlightManagementComponent;
-  let fixture: ComponentFixture<FlightManagementComponent>;
+describe('ReservaFormComponent', () => {
+  let component: ReservaFormComponent;
+  let fixture: ComponentFixture<ReservaFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FlightManagementComponent ]
+      declarations: [ ReservaFormComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FlightManagementComponent);
+    fixture = TestBed.createComponent(ReservaFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

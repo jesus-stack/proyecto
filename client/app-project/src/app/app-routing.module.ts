@@ -6,7 +6,10 @@ import { HomeComponent } from './component/home/home.component';
 import { LoginComponent } from './component/login/login.component';
 import { RegisterComponent } from './component/register/register.component';
 import { CheckInComponent } from './component/check-in/check-in.component';
-import { FlightManagementComponent } from './component/flight-management/flight-management.component';
+import { VueloFormComponent } from './component/managements/vuelo/vuelo-form/vuelo-form.component';
+import { VueloListComponent } from './component/managements/vuelo/vuelo-list/vuelo-list.component';
+import { ReservaFormComponent } from './component/managements/reserva/reserva-form/reserva-form.component';
+import { ReservaListComponent } from './component/managements/reserva/reserva-list/reserva-list.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -15,7 +18,9 @@ const routes: Routes = [
   { path: 'admin-home', component: AdminHomeComponent },
   { path: 'usuarios', component: UsuariosComponent },
   { path: 'check-in', component: CheckInComponent },
-  { path: 'flight-management', component: FlightManagementComponent },
+  { path: 'vuelo/list', component: VueloListComponent },
+  { path: 'vuelo/form', component: VueloFormComponent },
+  { path: 'vuelo/:id', component: VueloFormComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
