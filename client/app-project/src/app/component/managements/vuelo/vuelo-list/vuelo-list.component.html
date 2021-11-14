@@ -18,8 +18,8 @@
                 <td>{{ x.hora }}</td>
                 <td>{{ x.horaLlegada }}</td>
                 <td>
-                    <a href="">Editar </a>
-                    <a href="">Eliminar</a>
+                    <button class="btn btn-secondary" routerLink="/vuelo/{{x._id}}"><i class="fas fa-pen"></i></button>
+                    <button class="btn btn-danger" (click)="deleteVuelo(x._id)" ><i class="far fa-trash-alt"></i></button>
                 </td>
             </tr>
         </tbody>

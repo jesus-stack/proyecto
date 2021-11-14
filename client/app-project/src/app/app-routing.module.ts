@@ -20,6 +20,7 @@ const routes: Routes = [
   { path: 'check-in', component: CheckInComponent },
   { path: 'vuelo/list', component: VueloListComponent },
   { path: 'vuelo/form', component: VueloFormComponent },
+  { path: 'vuelo/:id', component: VueloFormComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 

@@ -12,7 +12,8 @@ var schema = new Schema(
         },
         dia: String,
         hora: String,
-        horaLlegada: String
+        horaLlegada: String,
+        habilitado: Boolean
     }
 );
 

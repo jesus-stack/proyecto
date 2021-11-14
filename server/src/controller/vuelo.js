@@ -13,43 +13,40 @@ module.exports.getById = async (req, res, next) => {
 };
 
 module.exports.create = async (req, res, next) => {
-    
+
     const { ruta, tipoAvion, dia, hora } = req.body;
+
+    const habilitado = true;
 
     const rutaTemp = await rutaModel.findById(ruta);
     const diaTemp = new Date(dia);
-    const time = new Date(diaTemp.getTime() + parseInt(hora.substr(0,hora.indexOf(":")))*60000);
-    time.setTime(time.getTime() + parseInt(rutaTemp.duracion)*60000);
+    const time = new Date(diaTemp.getTime() + parseInt(hora.substr(0, hora.indexOf(":"))) * 60000);
+    time.setTime(time.getTime() + parseInt(rutaTemp.duracion) * 60000);
+    const horaLlegada = time.getMinutes() + ':' + hora.substr(hora.indexOf(":") + 1);
 
-    horaLlegada = time.getMinutes() + ':' + hora.substr(hora.indexOf(":")+1);
-
-    const vuelo = new vueloModel({ ruta, tipoAvion, dia, hora, horaLlegada });
+    const vuelo = new vueloModel({ ruta, tipoAvion, dia, hora, horaLlegada, habilitado });
     vuelo.save();
     res.json(vuelo);
 };
 
 module.exports.delete = async (req, res, next) => {
-    const vuelo = await vueloModel.findByIdAndRemove(req.params.id);
-    if (vuelo) {
-        res.json({ result: "Borrado Correctamente", post: vuelo });
-    } else {
-        res.json({ result: "ID invalido", post: vuelo });
-    }
+
+    habilitado = false;
+    const vuelo = await vueloModel.findOneAndUpdate(
+        { _id: req.params.id },
+        { habilitado },
+        { new: true }
+    );
+    res.json(vuelo);
 };
 
 module.exports.update = async (req, res, next) => {
 
     const { ruta, tipoAvion, dia, hora } = req.body;
     const vuelo = await vueloModel.findOneAndUpdate(
-        { 
-            _id: req.params.id 
-        },
-        { 
-            ruta, tipoAvion, dia, hora
-        },
-        { 
-            new: true
-        }
+        { _id: req.params.id },
+        { ruta, tipoAvion, dia, hora },
+        { new: true }
     );
     res.json(vuelo);
 };

@@ -18,7 +18,19 @@ export class VueloService {
     return this.http.get(this.URL);
   }
 
-  createVuelo(vuelo: IVuelo){
+  getVueloById(id: String): Observable<any>{
+    return this.http.get(`${this.URL}/${id}`);
+  }
+
+  createVuelo(vuelo: IVuelo): Observable<any>{
     return this.http.post(this.URL, vuelo);
+  }
+
+  editVuelo(id: String, vuelo: IVuelo): Observable<any>{
+    return this.http.put(`${this.URL}/${id}`, vuelo);
+  }
+
+  deleteVuelo(id: String): Observable<any>{
+    return this.http.delete(`${this.URL}/${id}`);
   }
 }

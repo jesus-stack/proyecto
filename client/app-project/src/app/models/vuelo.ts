@@ -3,5 +3,6 @@ export interface IVuelo {
     tipoAvion: String,
     dia: String,
     hora: String,
-    horaLlegada?: String
+    horaLlegada?: String,
+    habilitado?: Boolean
 }
