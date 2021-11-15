@@ -19,6 +19,7 @@ app.use('/tipoAvion/',require('./route/tipoAvion'));
 app.use('/horario/',require('./route/horario'));
 app.use('/ruta/',require('./route/ruta'));
 app.use('/compra',require('./route/compra'));
+app.use('/ruta',require('./route/ruta'));
 
 //Puerto del servidor
 app.listen(8080,()=>{

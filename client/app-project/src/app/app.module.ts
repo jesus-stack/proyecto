@@ -13,10 +13,14 @@ import { RegisterComponent } from './component/register/register.component';
 import { LoginComponent } from './component/login/login.component';
 import { AdminHomeComponent } from './component/admin-home/admin-home.component';
 import { CheckInComponent } from './component/check-in/check-in.component';
-import { FlightManagementComponent } from './component/flight-management/flight-management.component';
 
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 import { UsuariosComponent } from './component/admin-home/usuarios/usuarios.component';
+import { VueloListComponent } from './component/managements/vuelo/vuelo-list/vuelo-list.component';
+import { VueloFormComponent } from './component/managements/vuelo/vuelo-form/vuelo-form.component';
+import { ReservaFormComponent } from './component/managements/reserva/reserva-form/reserva-form.component';
+import { ReservaListComponent } from './component/managements/reserva/reserva-list/reserva-list.component';
 
 @NgModule({
   declarations: [
@@ -27,18 +31,22 @@ import { UsuariosComponent } from './component/admin-home/usuarios/usuarios.comp
     RegisterComponent,
     LoginComponent,
     AdminHomeComponent,
-    UsuariosComponent
+    UsuariosComponent,
     LoginComponent,
     CheckInComponent,
-    FlightManagementComponent
+    VueloListComponent,
+    VueloFormComponent,
+    ReservaFormComponent,
+    ReservaListComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-     ToastrModule.forRoot(),
-     BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
