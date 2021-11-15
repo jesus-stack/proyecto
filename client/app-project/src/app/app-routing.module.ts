@@ -12,16 +12,30 @@ import { ReservaFormComponent } from './component/managements/reserva/reserva-fo
 import { ReservaListComponent } from './component/managements/reserva/reserva-list/reserva-list.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'admin-home', component: AdminHomeComponent },
-  { path: 'usuarios', component: UsuariosComponent },
-  { path: 'check-in', component: CheckInComponent },
-  { path: 'vuelo/list', component: VueloListComponent },
-  { path: 'vuelo/form', component: VueloFormComponent },
-  { path: 'vuelo/:id', component: VueloFormComponent },
-  { path: '**', redirectTo: '', pathMatch: 'full' }
+
+  {
+    path: '',
+    children: [
+      { path: '', component: HomeComponent },
+      { path: 'register', component: RegisterComponent },
+      { path: 'login', component: LoginComponent },
+      { path: 'check-in', component: CheckInComponent },
+    ]
+  },
+
+  {
+    path: 'dashboard',
+    component: AdminHomeComponent,
+    children: [
+      { path: 'management/user', component: UsuariosComponent },
+      { path: 'management/flight/list', component: VueloListComponent },
+      { path: 'management/flight/form', component: VueloFormComponent },
+      { path: 'management/flight/:id', component: VueloFormComponent },
+      { path: 'management/reservation/list', component: ReservaListComponent },
+      { path: 'management/reservation/form', component: ReservaFormComponent },
+      { path: 'management/reservation/:id', component: ReservaFormComponent },
+    ]
+  },
 ];
 
 @NgModule({
