@@ -48,7 +48,7 @@ export class VueloFormComponent implements OnInit {
         this.vueloService.getVueloById(param.id).subscribe(data => {
           this.vuelo = data;
           this.postForm.setValue({
-            ruta: data.ruta,
+            ruta: data.ruta.origen + " - " + data.ruta.destino,
             tipoAvion: data.tipoAvion,
             dia: data.dia,
             hora: data.hora,

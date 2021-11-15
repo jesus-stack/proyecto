@@ -8,7 +8,7 @@ module.exports.getAll = async (req, res, next) => {
 
 module.exports.getById = async (req, res, next) => {
     const id = req.params.id;
-    const vuelo = await vueloModel.findById(id).exec();
+    const vuelo = await vueloModel.findById(id).populate('ruta').exec();
     res.json(vuelo);
 };
 
