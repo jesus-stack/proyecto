@@ -2,10 +2,6 @@ const express = require("express");
 const router = express.Router();
 const rutaController = require("../controller/ruta");
 
-/*router.get("/",(req,res,next)=>{
-    res.send("vuelo works");
-});*/
-
 router.get("/", rutaController.getAll);
 
 router.get("/:id", rutaController.getById);

@@ -2,10 +2,6 @@ const express = require("express");
 const router = express.Router();
 const reserva_controller = require("../controller/reserva");
 
-/*router.get("/",(req,res,next)=>{
-    res.send("reserva works");
-});*/
-
 router.get("/", reserva_controller.getAll);
 
 router.get("/:id", reserva_controller.getById);

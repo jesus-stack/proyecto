@@ -83,7 +83,7 @@ export class VueloFormComponent implements OnInit {
         this.vueloService.editVuelo(this.vuelo._id,this.postForm.value).subscribe(
           response => {
             alert("Vuelo editado correctamente");
-            this.router.navigate(['vuelo/list']);
+            this.router.navigate(['dashboard/managements/flight/list']);
           },
           error => console.log(error)
         )
@@ -91,7 +91,7 @@ export class VueloFormComponent implements OnInit {
         this.vueloService.createVuelo(this.postForm.value).subscribe(
           response => {
             alert("Vuelo guardado correctamente");
-            this.router.navigate(['vuelo/list']);
+            this.router.navigate(['dashboard/managements/flight/list']);
           },
           error => console.log(error)
         )
