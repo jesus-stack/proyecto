@@ -36,6 +36,9 @@ const routes: Routes = [
       { path: 'management/reservation/list', component: ReservaListComponent },
       { path: 'management/reservation/form', component: ReservaFormComponent },
       { path: 'management/reservation/:id', component: ReservaFormComponent },
+      { path: 'management/tipoavion/list', component: TipoavionListComponent },
+      { path: 'management/tipoavion/form', component: TipoavionFormComponent },
+      { path: 'management/tipoavion/:id', component: TipoavionFormComponent },
     ]
   },
 ];

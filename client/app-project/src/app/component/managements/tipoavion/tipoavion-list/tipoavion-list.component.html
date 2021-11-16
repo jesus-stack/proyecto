@@ -55,21 +55,24 @@
             </tr>
         </thead>
         <tbody>
+
+            
             <tr *ngFor="let x of tipoavion">
                 <td>{{ x.identificador }}</td>
                 <td>{{ x.modelo }}</td>
                 <td>{{ x.marca }}</td>
-                <td>{{ x.annio }}</td>
+                <td>{{ x.anio }}</td>
                 <td>{{ x.cant_pasajeros }}</td>
                 <td>{{ x.cant_filas }}</td>
                 <td>{{ x.cant_asientosfila }}</td>
                 <td>
-                    <!-- <button class="btn btn-secondary" routerLink="/tipoavion/{{x._id}}"><i class="fas fa-pen"></i></button>  -->
-                    <button class="btn btn-danger" (click)="deleteTipoAvion(x._id)" ><i class="far fa-trash-alt"></i></button> 
-                <!-- (segun el de vuelos:)
-                <button class="btn btn-secondary" routerLink="/vuelo/{{x._id}}"><i class="fas fa-pen"></i></button> -->
-                </td>  
+                    <!-- <button class="btn btn-secondary d-inline-block m-1" routerLink="/tipoavion/{{x._id}}"><i
+                            class="fas fa-pen"></i></button> -->
+                    <button class="btn btn-danger d-inline-block m-1" (click)="deleteTipoAvion(x._id)"><i
+                            class="far fa-trash-alt"></i></button>
+                </td>
             </tr>
+            
         </tbody>
     </table>
 </div>

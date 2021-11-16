@@ -37,8 +37,9 @@ export class TipoavionListComponent implements OnInit {
     this.tipoavionService.getTiposAviones().subscribe(
       response => {
         this.tipoavion = response;
+        console.log(response); //quitaaar
         result = this.tipoavion.filter((x:any)=>x.habilitado === true);
-        this.tipoavion = result;
+        this.tipoavion = result; 
       },
       error => console.log(error)
     );
