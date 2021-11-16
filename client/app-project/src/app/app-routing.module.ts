@@ -10,6 +10,8 @@ import { VueloFormComponent } from './component/managements/vuelo/vuelo-form/vue
 import { VueloListComponent } from './component/managements/vuelo/vuelo-list/vuelo-list.component';
 import { ReservaFormComponent } from './component/managements/reserva/reserva-form/reserva-form.component';
 import { ReservaListComponent } from './component/managements/reserva/reserva-list/reserva-list.component';
+import { TipoavionListComponent } from './component/managements/tipoavion/tipoavion-list/tipoavion-list.component';
+import { TipoavionFormComponent } from './component/managements/tipoavion/tipoavion-form/tipoavion-form.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -21,11 +23,27 @@ const routes: Routes = [
   { path: 'vuelo/list', component: VueloListComponent },
   { path: 'vuelo/form', component: VueloFormComponent },
   { path: 'vuelo/:id', component: VueloFormComponent },
-  { path: '**', redirectTo: '', pathMatch: 'full' }
+  { path: '**', redirectTo: '', pathMatch: 'full' },
+   { path: 'tipoavion/list', component: TipoavionListComponent },
+  { path: 'tipoavion/form', component: TipoavionFormComponent },
+  { path: 'tipoavion/:id', component: TipoavionFormComponent },
+
+  
+  /*{ Manual del profe. Mantenimientos. (El del profe tiene varias cosas diferentes):
+
+    path: 'dashboard',
+    canActivate: [],
+    component: PublicLayoutComponent,
+    children: [
+      { path: 'profile', component: ProfileComponent },
+      { path: 'blog/list', component: ListComponent },
+      { path: 'blog/new', component: TipoavionFormComponent }, 
+    ],
+  },*/
 ];
 
-@NgModule({
+ @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule { } 

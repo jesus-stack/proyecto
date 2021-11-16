@@ -21,6 +21,9 @@ import { VueloListComponent } from './component/managements/vuelo/vuelo-list/vue
 import { VueloFormComponent } from './component/managements/vuelo/vuelo-form/vuelo-form.component';
 import { ReservaFormComponent } from './component/managements/reserva/reserva-form/reserva-form.component';
 import { ReservaListComponent } from './component/managements/reserva/reserva-list/reserva-list.component';
+import { TipoAvionService } from './services/tipo-avion.service';
+import { TipoavionFormComponent } from './component/managements/tipoavion/tipoavion-form/tipoavion-form.component';
+
 
 @NgModule({
   declarations: [
@@ -38,6 +41,9 @@ import { ReservaListComponent } from './component/managements/reserva/reserva-li
     VueloFormComponent,
     ReservaFormComponent,
     ReservaListComponent,
+    TipoavionFormComponent,
+   
+    
   ],
   imports: [
     BrowserModule,
