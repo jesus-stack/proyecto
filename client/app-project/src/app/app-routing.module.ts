@@ -14,32 +14,30 @@ import { TipoavionListComponent } from './component/managements/tipoavion/tipoav
 import { TipoavionFormComponent } from './component/managements/tipoavion/tipoavion-form/tipoavion-form.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'admin-home', component: AdminHomeComponent },
-  { path: 'usuarios', component: UsuariosComponent },
-  { path: 'check-in', component: CheckInComponent },
-  { path: 'vuelo/list', component: VueloListComponent },
-  { path: 'vuelo/form', component: VueloFormComponent },
-  { path: 'vuelo/:id', component: VueloFormComponent },
-  { path: '**', redirectTo: '', pathMatch: 'full' },
-   { path: 'tipoavion/list', component: TipoavionListComponent },
-  { path: 'tipoavion/form', component: TipoavionFormComponent },
-  { path: 'tipoavion/:id', component: TipoavionFormComponent },
 
-  
-  /*{ Manual del profe. Mantenimientos. (El del profe tiene varias cosas diferentes):
-
-    path: 'dashboard',
-    canActivate: [],
-    component: PublicLayoutComponent,
+  {
+    path: '',
     children: [
-      { path: 'profile', component: ProfileComponent },
-      { path: 'blog/list', component: ListComponent },
-      { path: 'blog/new', component: TipoavionFormComponent }, 
-    ],
-  },*/
+      { path: '', component: HomeComponent },
+      { path: 'register', component: RegisterComponent },
+      { path: 'login', component: LoginComponent },
+      { path: 'check-in', component: CheckInComponent },
+    ]
+  },
+
+  {
+    path: 'dashboard',
+    component: AdminHomeComponent,
+    children: [
+      { path: 'management/user', component: UsuariosComponent },
+      { path: 'management/flight/list', component: VueloListComponent },
+      { path: 'management/flight/form', component: VueloFormComponent },
+      { path: 'management/flight/:id', component: VueloFormComponent },
+      { path: 'management/reservation/list', component: ReservaListComponent },
+      { path: 'management/reservation/form', component: ReservaFormComponent },
+      { path: 'management/reservation/:id', component: ReservaFormComponent },
+    ]
+  },
 ];
 
  @NgModule({
