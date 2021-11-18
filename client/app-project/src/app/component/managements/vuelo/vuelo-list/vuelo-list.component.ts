@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { VueloService } from '../../../../services/vuelo.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-vuelo-list',
@@ -12,8 +11,7 @@ export class VueloListComponent implements OnInit {
   vuelos: any = [];
 
   constructor(
-    private vueloService: VueloService,
-    private router: Router
+    private vueloService: VueloService
   ) { }
 
   ngOnInit(): void {
@@ -37,8 +35,8 @@ export class VueloListComponent implements OnInit {
   deleteVuelo(id: String) {
     this.vueloService.deleteVuelo(id).subscribe(
       response => {
-        alert("Eliminado Correctamente");
         this.getVuelos();
+        alert("Eliminado Correctamente");
       },
       error => console.log(error)
     );

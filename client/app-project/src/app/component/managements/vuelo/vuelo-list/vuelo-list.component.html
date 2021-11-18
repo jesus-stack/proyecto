@@ -1,4 +1,8 @@
-<button class="btn btn-primary mb-3">Crear nuevo vuelo</button>
+<a class="btn btn-primary mb-3" href="/dashboard/management/flight/form">
+    <i class="fas fa-plus d-inline-block m-1"></i>
+    Crear Nuevo
+</a>
+
 <div class="card">
     <div class="card-body">
         <div class="table-responsive">
@@ -21,10 +25,10 @@
                     <td>{{ x.hora }}</td>
                     <td>{{ x.horaLlegada }}</td>
                     <td>
-                        <button class="btn btn-secondary d-inline-block m-1" routerLink="/vuelo/{{x._id}}"><i
-                                class="fas fa-pen"></i></button>
-                        <button class="btn btn-danger d-inline-block m-1" (click)="deleteVuelo(x._id)"><i
-                                class="far fa-trash-alt"></i></button>
+                        <a type="button" class="btn btn-secondary d-inline-block m-1" href="/dashboard/management/flight/{{x._id}}"><i
+                                class="fas fa-pen"></i></a>
+                        <a type="button" class="btn btn-danger d-inline-block m-1" (click)="deleteVuelo(x._id)"><i
+                                class="far fa-trash-alt"></i></a>
                     </td>
                 </tr>
             </tbody>
