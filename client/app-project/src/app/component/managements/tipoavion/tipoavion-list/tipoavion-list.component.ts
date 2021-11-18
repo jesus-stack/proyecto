@@ -8,17 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./tipoavion-list.component.css']
 })
 export class TipoavionListComponent implements OnInit {
-
-
-  /* constructor(private tipoavionService: TipoAvionService) {}
-
-  posts: any = [];
-//creo que aqui faltaaa!
-  ngOnInit(): void {
-    this.tipoavionService.getTiposAviones().subscribe((posts) => {
-      this.posts = posts;
-    });
-  } */
+  
   tipoavion: any;
 
   constructor(

@@ -1,53 +1,44 @@
-<div class="container pt-2 register pb-5">
-    <div class="row py-5 mt-4 align-items-center">
-        <div class="pb-4 text-center">
-            <h1>Mantenimiento Tipo avion</h1>
-        </div>
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Formulario Tipo de Avion</h5>
+        <hr>
         <form [formGroup]="postForm" (ngSubmit)="submitForm()">
             <div class="row mb-3">
                 <div class="col-lg-12">
                     <label class="form-label">Identificador</label>
-                    <input formControlName="identificador" type="text" class="form-control" aria-describedby="emailHelp">
+                    <input formControlName="identificador" type="text" class="form-control">
                 </div>
             </div>
             <div class="row mb-3">
                 <div class="col-lg-12">
                     <label class="form-label">Modelo</label>
-                    <textarea formControlName="modelo" class="form-control" aria-describedby="emailHelp"></textarea>
+                    <input formControlName="modelo" type="text" class="form-control">
                 </div>
             </div>
             <div class="row mb-3">
                 <div class="col-lg-12">
                     <label class="form-label">Marca</label>
-                    <input formControlName="marca" type="text" class="form-control" aria-describedby="emailHelp">
+                    <input formControlName="marca" type="text" class="form-control">
                 </div>
             </div>
             <div class="row mb-3">
-                <div class="col-lg-12">
+                <div class="col-lg-4">
                     <label class="form-label">Año</label>
-                    <textarea formControlName="anio" class="form-control" aria-describedby="emailHelp"></textarea>
+                    <input type="number" formControlName="anio" class="form-control" min="2000" max="2021">
                 </div>
-            </div>
-            <div class="row mb-3">
-                <div class="col-lg-12">
-                    <label class="form-label">Cantidad de Pasajeros</label>
-                    <textarea formControlName="cant_pasajeros" class="form-control" aria-describedby="emailHelp"></textarea>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <div class="col-lg-12">
+                <div class="col-lg-4">
                     <label class="form-label">Cantidad de Filas</label>
-                    <textarea formControlName="cant_filas" class="form-control" aria-describedby="emailHelp"></textarea>
+                    <select class="form-select" name="cant_Filas" formControlName="cant_Filas">
+                        <option [ngValue]="6">6</option>
+                        <option [ngValue]="9">9</option>
+                    </select>
                 </div>
-            </div>
-            <div class="row mb-3">
-                <div class="col-lg-12">
+                <div class="col-lg-4">
                     <label class="form-label">Cantidad de Asientos por Fila</label>
-                    <textarea formControlName="cant_asientosfila" class="form-control" aria-describedby="emailHelp"></textarea>
+                    <input type="number" formControlName="cant_AsientosFila" class="form-control" min="15" max="20">
                 </div>
             </div>
             <button type="submit" class="btn btn-primary mt-4">Guardar</button>
         </form>
     </div>
 </div>
-

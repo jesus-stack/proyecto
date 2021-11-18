@@ -19,8 +19,6 @@ import { FormsModule } from '@angular/forms';
 import { UsuariosComponent } from './component/admin-home/usuarios/usuarios.component';
 import { VueloListComponent } from './component/managements/vuelo/vuelo-list/vuelo-list.component';
 import { VueloFormComponent } from './component/managements/vuelo/vuelo-form/vuelo-form.component';
-import { ReservaFormComponent } from './component/managements/reserva/reserva-form/reserva-form.component';
-import { ReservaListComponent } from './component/managements/reserva/reserva-list/reserva-list.component';
 import { TipoavionListComponent } from './component/managements/tipoavion/tipoavion-list/tipoavion-list.component';
 import { TipoavionFormComponent } from './component/managements/tipoavion/tipoavion-form/tipoavion-form.component';
 import { RutaListComponent } from './component/managements/ruta/ruta-list/ruta-list.component';
@@ -41,8 +39,6 @@ import { RutaFormComponent } from './component/managements/ruta/ruta-form/ruta-f
     CheckInComponent,
     VueloListComponent,
     VueloFormComponent,
-    ReservaFormComponent,
-    ReservaListComponent,
     TipoavionListComponent,
     TipoavionFormComponent,
     RutaListComponent,

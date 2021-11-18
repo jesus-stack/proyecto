@@ -5,10 +5,10 @@ var schema = new Schema(
         identificador: String,
         modelo: String,
         marca: String,
-        anio: String,
-        cant_pasajeros: String,
-        cant_filas: String,
-        cant_asientosfila: String,
+        anio: Number,
+        cant_pasajeros: Number,
+        cant_Filas: Number,
+        cant_AsientosFila: Number,
         
     }
 );
