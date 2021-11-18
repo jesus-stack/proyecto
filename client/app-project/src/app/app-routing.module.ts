@@ -8,8 +8,6 @@ import { RegisterComponent } from './component/register/register.component';
 import { CheckInComponent } from './component/check-in/check-in.component';
 import { VueloFormComponent } from './component/managements/vuelo/vuelo-form/vuelo-form.component';
 import { VueloListComponent } from './component/managements/vuelo/vuelo-list/vuelo-list.component';
-import { ReservaFormComponent } from './component/managements/reserva/reserva-form/reserva-form.component';
-import { ReservaListComponent } from './component/managements/reserva/reserva-list/reserva-list.component';
 import { TipoavionListComponent } from './component/managements/tipoavion/tipoavion-list/tipoavion-list.component';
 import { TipoavionFormComponent } from './component/managements/tipoavion/tipoavion-form/tipoavion-form.component';
 import { RutaListComponent } from './component/managements/ruta/ruta-list/ruta-list.component';
@@ -35,9 +33,6 @@ const routes: Routes = [
       { path: 'management/flight/list', component: VueloListComponent },
       { path: 'management/flight/form', component: VueloFormComponent },
       { path: 'management/flight/:id', component: VueloFormComponent },
-      { path: 'management/reservation/list', component: ReservaListComponent },
-      { path: 'management/reservation/form', component: ReservaFormComponent },
-      { path: 'management/reservation/:id', component: ReservaFormComponent },
       { path: 'management/tipoavion/list', component: TipoavionListComponent },
       { path: 'management/tipoavion/form', component: TipoavionFormComponent },
       { path: 'management/tipoavion/:id', component: TipoavionFormComponent },

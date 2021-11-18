@@ -16,8 +16,9 @@ module.exports.getById = async (req, res, next) => {
 };
 
 module.exports.create = (req, res, next) => {
-    const { identificador, modelo, marca, anio, cant_pasajeros, cant_filas, cant_asientosfila } = req.body;
-    const tipoAvion = new tipoAvionModel({ identificador, modelo, marca, anio, cant_pasajeros, cant_filas, cant_asientosfila });
+    const { identificador, modelo, marca, anio, cant_Filas, cant_AsientosFila } = req.body;
+    cant_pasajeros = cant_Filas * cant_AsientosFila;
+    const tipoAvion = new tipoAvionModel({ identificador, modelo, marca, anio, cant_pasajeros, cant_Filas, cant_AsientosFila });
     tipoAvion.save();
     res.json(tipoAvion);
 };
@@ -33,13 +34,14 @@ module.exports.delete = async (req, res, next) => {
 
 module.exports.update = async (req, res, next) => {
 
-    const { identificador, modelo, marca, anio, cant_pasajeros, cant_filas, cant_asientosfila} = req.body;
+    const { identificador, modelo, marca, anio, cant_Filas, cant_AsientosFila} = req.body;
+    cant_pasajeros = cant_Filas * cant_AsientosFila;
     const tipoAvion = await tipoAvionModel.findOneAndUpdate(
         {
             _id: req.params.id
         },
         {
-            identificador, modelo, marca, anio, cant_pasajeros, cant_filas, cant_asientosfila
+            identificador, modelo, marca, anio, cant_pasajeros, cant_Filas, cant_AsientosFila
         },
         {
             new: true
