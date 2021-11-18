@@ -1,0 +1,41 @@
+<div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Formulario Rutas</h5>
+      <hr>
+      <form [formGroup]="postForm" (ngSubmit)="submitForm()">
+        <div class="row mb-3">
+            <div class="col-lg-12">
+                <label class="form-label">Identificador</label>
+                <input formControlName="identificador" type="text" class="form-control" aria-describedby="emailHelp">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-lg-12">
+                <label class="form-label">Duracion</label>
+                <textarea formControlName="duracion" class="form-control" aria-describedby="emailHelp"></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="mb-3">
+                    <label class="form-label">Origen</label>
+                    <textarea formControlName="origen" class="form-control" aria-describedby="emailHelp"></textarea>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="mb-3">
+                    <label class="form-label">Destino</label>
+                    <textarea formControlName="destino" class="form-control" aria-describedby="emailHelp"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-lg-12">
+                <label class="form-label">Porcentaje de descuento</label>
+                <textarea formControlName="porc_descuento" class="form-control" aria-describedby="emailHelp"></textarea>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary mt-4">Guardar</button>
+    </form>
+    </div>
+  </div>

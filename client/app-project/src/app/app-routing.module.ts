@@ -12,6 +12,8 @@ import { ReservaFormComponent } from './component/managements/reserva/reserva-fo
 import { ReservaListComponent } from './component/managements/reserva/reserva-list/reserva-list.component';
 import { TipoavionListComponent } from './component/managements/tipoavion/tipoavion-list/tipoavion-list.component';
 import { TipoavionFormComponent } from './component/managements/tipoavion/tipoavion-form/tipoavion-form.component';
+import { RutaListComponent } from './component/managements/ruta/ruta-list/ruta-list.component';
+import { RutaFormComponent } from './component/managements/ruta/ruta-form/ruta-form.component';
 
 const routes: Routes = [
 
@@ -39,6 +41,9 @@ const routes: Routes = [
       { path: 'management/tipoavion/list', component: TipoavionListComponent },
       { path: 'management/tipoavion/form', component: TipoavionFormComponent },
       { path: 'management/tipoavion/:id', component: TipoavionFormComponent },
+      { path: 'management/ruta/list', component: RutaListComponent },
+      { path: 'management/ruta/form', component: RutaFormComponent },
+      { path: 'management/ruta/:id', component: RutaFormComponent },
     ]
   },
 ];

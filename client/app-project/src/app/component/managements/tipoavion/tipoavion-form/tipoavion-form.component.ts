@@ -24,8 +24,6 @@ export class TipoavionFormComponent implements OnInit {
     cant_asientosfila: new FormControl('', Validators.required),
   });
 
-  /* tiposAviones = <any>[];
-  rutas = <any>[];*/
   tiposAviones: any = {};
   editMode = false; 
 
@@ -63,25 +61,9 @@ export class TipoavionFormComponent implements OnInit {
     );
   }
 
-  /* getTiposAviones() {
-    this.tipoAvionService.getTiposAviones().subscribe(
-      response => {
-        this.tiposAviones = response;
-      },
-      error => console.log(error)
-    );
-  }
-
-  getRutas() {
-    this.rutaService.getRutas().subscribe(
-      response => {
-        this.rutas = response;
-      },
-      error => console.log(error)
-    );
-  } */
-
   submitForm() {
+    console.log(this.postForm.valid, 'isValid')
+    console.log(this.postForm, 'postform')
     if (this.postForm.valid) {
       if(this.editMode){
         this.tipoavionservice.editTipoAvion(this.tiposAviones._id,this.postForm.value).subscribe(
@@ -92,6 +74,7 @@ export class TipoavionFormComponent implements OnInit {
           error => console.log(error)
         )
       }else{
+        console.log("test");
         this.tipoavionservice.createTipoAvion(this.postForm.value).subscribe(
           response => {
             alert("Tipo avion guardado correctamente");
@@ -104,14 +87,5 @@ export class TipoavionFormComponent implements OnInit {
       alert("Ha ocurrido un error");
     }
   }
-  /* Manual del profe_Mantenimientos:
-  
-  submitForm2() {
-    if (this.postForm.valid) {
-      console.log(this.postForm.value, 'this.commentForm.value');
-      this.postService.create(this.postForm.value).subscribe((data) => {
-        this.router.navigate(['/dashboard/blog/list']);
-      });
-    }
-  } */
+ 
 }
