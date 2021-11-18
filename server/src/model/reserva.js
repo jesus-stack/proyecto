@@ -10,7 +10,8 @@ var schema = new Schema(
             type: Schema.Types.ObjectId,
             ref: "vuelo"
         },
-        asiento: String
+        asiento: String,
+        habilitado: Boolean
     }
 );
 
