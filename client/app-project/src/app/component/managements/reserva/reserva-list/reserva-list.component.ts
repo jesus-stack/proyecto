@@ -11,13 +11,13 @@ export class ReservaListComponent implements OnInit {
   reservas: any = [];
 
   constructor(
-    private reservaService: ReservaService
+    //private reservaService: ReservaService
   ) { }
 
   ngOnInit(): void {
-    this.getReservas();
+    //this.getReservas();
   }
-
+/*
   getReservas() {
     let result = false;
     this.reservaService.getReservas().subscribe(
@@ -39,5 +39,5 @@ export class ReservaListComponent implements OnInit {
       error => console.log(error)
     );
   }
-
+*/
 }
