@@ -6,9 +6,9 @@ var schema = new Schema(
         modelo: String,
         marca: String,
         anio: String,
-        cant_Pasajeros: String,
-        cant_Filas: String,
-        cant_AsientosFila: String,
+        cant_pasajeros: String,
+        cant_filas: String,
+        cant_asientosfila: String,
         
     }
 );

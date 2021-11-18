@@ -12,8 +12,8 @@ module.exports.getById = async (req, res, next) => {
 };
 
 module.exports.create = (req, res, next) => {
-    const { identificador, duracion, origen, destino, porc_Descuento } = req.body;
-    const ruta = new rutaModel({ identificador, duracion, origen, destino, porc_Descuento });
+    const { identificador, duracion, origen, destino, porc_descuento } = req.body;
+    const ruta = new rutaModel({ identificador, duracion, origen, destino, porc_descuento });
     ruta.save();
     res.json(ruta);
 };
@@ -29,13 +29,13 @@ module.exports.delete = async (req, res, next) => {
 
 module.exports.update = async (req, res, next) => {
 
-    const { identificador, duracion, origen, destino, porc_Descuento } = req.body;
+    const {  identificador, duracion, origen, destino, porc_descuento } = req.body;
     const ruta = await rutaModel.findOneAndUpdate(
         { 
             _id: req.params.id 
         },
         { 
-            identificador, duracion, origen, destino, porc_Descuento
+            identificador, duracion, origen, destino, porc_descuento
         },
         { 
             new: true

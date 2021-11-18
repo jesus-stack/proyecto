@@ -6,7 +6,7 @@ var schema = new Schema(
         duracion: String,
         origen: String,
         destino: String,
-        porc_Descuento: String
+        porc_descuento: String
         
     }
 );
