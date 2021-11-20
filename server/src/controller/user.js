@@ -14,7 +14,14 @@ userController.getuser= async (req, res,next)=>{
     res.json(users);
 };
 userController.deleteuser= async (req, res,next)=>{
-     await model.findByIdAndRemove(req.params.id);
+   
+    habilitado = false;
+    const user = await model.findOneAndUpdate(
+        { _id: req.params.id },
+        { habilitado },
+        { new: true }
+    );
+    
     res.json('eliminado exitosamente');
 };
 userController.getById= async (req, res,next)=>{

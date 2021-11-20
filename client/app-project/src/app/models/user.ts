@@ -12,4 +12,5 @@ export interface User {
     default: "user",
     enum: ["user", "admin"],
   },
+  habilitado: Boolean
 }

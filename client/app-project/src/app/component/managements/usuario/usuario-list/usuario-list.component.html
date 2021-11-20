@@ -1,0 +1,34 @@
+<a class="btn btn-primary mb-3" href="/dashboard/management/flight/form">
+  <i class="fas fa-plus d-inline-block m-1"></i>
+  Crear Nuevo
+</a>
+
+<div class="card">
+  <div class="card-body">
+      <div class="table-responsive">
+          <table class="table table-hover">
+              <thead class="table-white">
+                  <tr>
+                      <th scope="col">Usuario</th>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">Correo electronico</th>
+                      <th scope="col">Fecha de Nacimiento</th>
+                      <th scope="col">Telefono</th>
+                      <th scope="col">Rol</th>
+                  </tr>
+              </thead>
+              <tbody>
+                 <tr *ngFor="let x of users">
+
+                      <td>
+                          <a type="button" class="btn btn-secondary d-inline-block m-1"
+                              href="/dashboard/management/flight/"><i class="fas fa-pen"></i></a>
+                          <a type="button" class="btn btn-danger d-inline-block m-1" ><i
+                                  class="far fa-trash-alt"></i></a>
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
+</div>
