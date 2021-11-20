@@ -10,10 +10,10 @@ var schema = new Schema(
             type: Schema.Types.ObjectId,
             ref: "tipoAvion"
         },
-        horario: {
-            type: Schema.Types.ObjectId,
-            ref: "horario"
-        }
+        dia: String,
+        hora: String,
+        horaLlegada: String,
+        habilitado: Boolean
     }
 );
 

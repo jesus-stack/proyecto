@@ -1,0 +1,13 @@
+
+  .login{
+    margin: 5rem auto;
+    max-width: 30rem;
+    background-color: rgb(241, 241, 241);
+    padding: 3rem 2rem;
+    border-radius: .5rem;
+  }
+
+  .login div h1{
+    font-size: 1.6rem;
+    font-weight: bold;
+  }

@@ -1,0 +1,33 @@
+<button class="btn btn-primary mb-3">Crear nueva ruta</button>
+<div class="card">
+    <div class="card-body">
+        <div class="table-responsive">
+        <table class="table table-hover">
+            <thead class="table-white">
+                <tr>
+                    <th scope="col">Identificador</th>
+                    <th scope="col">Duracion</th>
+                    <th scope="col">Origen</th>
+                    <th scope="col">Destino</th>
+                    <th scope="col">Porcentaje descuento</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let x of rutas">
+                    <td>{{ x.identificador }}</td>
+                    <td>{{ x.duracion }}</td>
+                    <td>{{ x.origen }}</td>
+                    <td>{{ x.destino }}</td>
+                    <td>{{ x.porc_descuento }}</td>
+                    <td>
+                        <button class="btn btn-secondary d-inline-block m-1" routerLink="/rutas/{{x._id}}"><i
+                                class="fas fa-pen"></i></button>
+                        <button class="btn btn-danger d-inline-block m-1" (click)="deleteRuta(x._id)"><i
+                                class="far fa-trash-alt"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    </div>
+</div>

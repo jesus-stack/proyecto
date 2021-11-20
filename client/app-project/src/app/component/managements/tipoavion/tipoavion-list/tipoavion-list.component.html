@@ -1,0 +1,42 @@
+<a class="btn btn-primary mb-3" href="/dashboard/management/tipoavion/form">
+    <i class="fas fa-plus d-inline-block m-1"></i>
+    Crear Nuevo
+</a>
+
+<div class="card">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead class="table-white">
+                    <tr>
+                        <th scope="col">Identificador</th>
+                        <th scope="col">Modelo</th>
+                        <th scope="col">Marca</th>
+                        <th scope="col">Año</th>
+                        <th scope="col">Cantidad Pasajeros</th>
+                        <th scope="col">Cantidad Filas</th>
+                        <th scope="col">Cantidad Asientos</th>
+                        <th scope="col">Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let x of tipoavion">
+                        <td>{{ x.identificador }}</td>
+                        <td>{{ x.modelo }}</td>
+                        <td>{{ x.marca }}</td>
+                        <td>{{ x.anio }}</td>
+                        <td>{{ x.cant_pasajeros }}</td>
+                        <td>{{ x.cant_Filas }}</td>
+                        <td>{{ x.cant_AsientosFila }}</td>
+                        <td>
+                            <a class="btn btn-secondary d-inline-block m-1" href="dashboard/management/tipoavion/{{x._id}}"><i
+                                    class="fas fa-pen"></i></a>
+                            <a class="btn btn-danger d-inline-block m-1" (click)="deleteTipoAvion(x._id)"><i
+                                    class="far fa-trash-alt"></i></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

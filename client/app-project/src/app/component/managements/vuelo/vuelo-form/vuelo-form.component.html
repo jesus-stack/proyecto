@@ -1,0 +1,44 @@
+<div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Formulario Vuelos</h5>
+      <hr>
+      <form [formGroup]="postForm" (ngSubmit)="submitForm()">
+        <div class="row mb-3">
+            <div class="col-lg-12">
+                <label class="form-label">Ruta</label>
+                <div *ngIf="editMode; else notEditMode">
+                    <input type="text" readonly class="form-control" name="ruta" formControlName="ruta">
+                </div>
+                <ng-template #notEditMode>
+                    <select class="form-select" name="ruta" formControlName="ruta">
+                        <option *ngFor="let x of rutas" [ngValue]="x._id">{{x.origen}} - {{x.destino}}</option>
+                    </select>
+                </ng-template>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-lg-12">
+                <label class="form-label">Tipo de Avion</label>
+                <select class="form-select" name="tipoAvion" formControlName="tipoAvion">
+                    <option *ngFor="let x of tiposAviones" [ngValue]="x._id">{{ x.modelo }} Año: {{ x.anio }}</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="mb-3">
+                    <label class="form-label">Dia</label>
+                    <input type="date" class="form-control" name="dia" formControlName="dia">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="mb-3">
+                    <label class="form-label">Hora</label>
+                    <input type="time" class="form-control" name="hora" formControlName="hora">
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary mt-4">Guardar</button>
+    </form>
+    </div>
+  </div>
