@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  isValid = false;
+
   constructor() { }
 
   ngOnInit(): void {
+    this.validarToken();
+  }
+
+  validarToken(){
+    
+    if(true){
+      this.isValid = true;
+    }
   }
 
 }

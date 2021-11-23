@@ -24,6 +24,8 @@ import { TipoavionFormComponent } from './component/managements/tipoavion/tipoav
 import { RutaListComponent } from './component/managements/ruta/ruta-list/ruta-list.component';
 import { RutaFormComponent } from './component/managements/ruta/ruta-form/ruta-form.component';
 
+import { UserInterceptorProviders } from './services/user-interceptor.service';
+
 
 @NgModule({
   declarations: [
@@ -55,7 +57,7 @@ import { RutaFormComponent } from './component/managements/ruta/ruta-form/ruta-f
     BrowserAnimationsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [UserInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

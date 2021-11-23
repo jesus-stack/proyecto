@@ -1,26 +1,16 @@
-//rutas
 const express = require('express');
 const compraController = require('../controller/compra');
-const Router =express.Router();
-
+const router = express.Router();
 const auth = require('../middleware/user');
 
-//obtener
-Router.get('/' ,compraController.getcompra)
+router.get('/' , auth, compraController.getcompra)
 
+router.post('/', auth, compraController.createcompra)
 
-//crear
-Router.post('/',compraController.createcompra)
+router.delete('/:id', auth, compraController.deletecompra)
 
-//eliminar
-Router.delete('/:id',compraController.deletecompra)
+router.get('/:id', auth, compraController.getById)
 
-//obtenerbyid
-Router.get('/:id',compraController.getById)
+router.put('/:id', auth, compraController.updatecompra)
 
-//obtenerbyid
-Router.put('/:id',compraController.updatecompra)
-
-
-
-module.exports = Router;
+module.exports = router;

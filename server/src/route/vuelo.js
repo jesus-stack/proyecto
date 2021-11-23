@@ -1,16 +1,17 @@
 const express = require("express");
 const router = express.Router();
 const vueloController = require("../controller/vuelo");
+const auth = require('../middleware/user');
 
-router.get("/", vueloController.getAll);
+router.get("/", auth, vueloController.getAll);
 
-router.get("/:id", vueloController.getById);
+router.get("/:id", auth, vueloController.getById);
 
-router.post("/", vueloController.create);
+router.post("/", auth, vueloController.create);
 
-router.delete("/:id", vueloController.delete);
+router.delete("/:id", auth, vueloController.delete);
 
-router.put("/:id", vueloController.update);
+router.put("/:id", auth, vueloController.update);
 
 module.exports = router;
 
