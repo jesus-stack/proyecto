@@ -3,11 +3,10 @@ const { Schema, model } = require('mongoose');
 var schema = new Schema(
     {
         identificador: String,
-        duracion: String,
+        duracion: Number,
         origen: String,
         destino: String,
-        porc_descuento: String
-        
+        porc_descuento: Number
     }
 );
 
