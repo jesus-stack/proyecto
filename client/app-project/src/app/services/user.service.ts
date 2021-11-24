@@ -26,6 +26,9 @@ update(id: string ,user : User):Observable<any>{
 delete(id: string ):Observable<any>{
   return this.http.delete(this.API_URL+'/'+id);
 }
+getById(id: string ):Observable<any>{
+  return this.http.get(this.API_URL+'/'+id);
+}
 get():Observable<any>{
   return this.http.get(this.API_URL);
 }

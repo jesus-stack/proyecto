@@ -24,6 +24,9 @@ import { RutaListComponent } from './component/managements/ruta/ruta-list/ruta-l
 import { RutaFormComponent } from './component/managements/ruta/ruta-form/ruta-form.component';
 import { UsuarioListComponent } from './component/managements/usuario/usuario-list/usuario-list.component';
 import { UsuarioFormComponent } from './component/managements/usuario/usuario-form/usuario-form.component';
+import { CompraListComponent } from './component/managements/compra/compra-list/compra-list.component';
+import { CompraFormComponent } from './component/managements/compra/compra-form/compra-form.component';
+
 
 
 @NgModule({
@@ -45,6 +48,9 @@ import { UsuarioFormComponent } from './component/managements/usuario/usuario-fo
     RutaFormComponent,
     UsuarioListComponent,
     UsuarioFormComponent,
+    CompraListComponent,
+    CompraFormComponent,
+ 
 
 
   ],

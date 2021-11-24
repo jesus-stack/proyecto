@@ -13,6 +13,8 @@ import { RutaListComponent } from './component/managements/ruta/ruta-list/ruta-l
 import { RutaFormComponent } from './component/managements/ruta/ruta-form/ruta-form.component';
 import { UsuarioListComponent } from './component/managements/usuario/usuario-list/usuario-list.component';
 import { UsuarioFormComponent } from './component/managements/usuario/usuario-form/usuario-form.component';
+import { CompraListComponent } from './component/managements/compra/compra-list/compra-list.component';
+import { CompraFormComponent } from './component/managements/compra/compra-form/compra-form.component';
 
 const routes: Routes = [
 
@@ -32,6 +34,7 @@ const routes: Routes = [
     children: [
      { path: 'management/user/list', component: UsuarioListComponent },
      { path: 'management/user/form', component: UsuarioFormComponent },
+     { path: 'management/user/:id', component: UsuarioFormComponent },
       { path: 'management/flight/list', component: VueloListComponent },
       { path: 'management/flight/form', component: VueloFormComponent },
       { path: 'management/flight/:id', component: VueloFormComponent },
@@ -41,6 +44,9 @@ const routes: Routes = [
       { path: 'management/ruta/list', component: RutaListComponent },
       { path: 'management/ruta/form', component: RutaFormComponent },
       { path: 'management/ruta/:id', component: RutaFormComponent },
+      { path: 'management/compra/list', component: CompraListComponent },
+     { path: 'management/compra/form', component: CompraFormComponent },
+     { path: 'management/compra/:id', component: CompraFormComponent },
     ]
   },
 ];

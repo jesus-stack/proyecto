@@ -15,7 +15,7 @@ const schema = new Schema({
         default: "user",
         enum: ["user", "admin"],
       },
-      habilitado: Boolean
+      habilitado: {type:Boolean,default:true}
 
 });
 

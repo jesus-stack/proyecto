@@ -1,4 +1,4 @@
-<a class="btn btn-primary mb-3" href="/dashboard/management/user/form">
+<a class="btn btn-primary mb-3" href="/dashboard/management/compra/form">
   <i class="fas fa-plus d-inline-block m-1"></i>
   Crear Nuevo
 </a>
@@ -10,28 +10,26 @@
               <thead class="table-white">
                   <tr>
                       <th scope="col">Usuario</th>
-                      <th scope="col">Nombre</th>
-                      <th scope="col">Correo electronico</th>
-                      <th scope="col">Fecha de Nacimiento</th>
-                      <th scope="col">Telefono</th>
-                      <th scope="col">Rol</th>
+                      <th scope="col">Cantidad</th>
+                      <th scope="col">Subtotal</th>
+                      <th scope="col">Descuento</th>
+                      <th scope="col">Monto total</th>
                       <th scope="col">Opciones</th>
                   </tr>
               </thead>
               <tbody>
-                 <tr *ngFor="let x of users">
+                 <tr *ngFor="let x of compras">
 
-                   <td>{{x.user}}</td>
-                   <td>{{x.name}}</td>
-                   <td>{{x.email}}</td>
-                   <td>{{x.birthdate}}</td>
-                   <td>{{x.mobile}}</td>
-                   <td>{{x.role}}</td>
+                   <td>{{x.Usuario.name}}</td>
+                   <td>{{x.Cantidad}}</td>
+                   <td>{{x.Subtotal}}</td>
+                   <td>{{x.Descuento}}</td>
+                   <td>{{x.MontoTotal}}</td>
 
 
                       <td>
                           <a type="button" class="btn btn-secondary d-inline-block m-1"
-                              href="/dashboard/management/user/{{x._id}}"><i class="fas fa-pen"></i></a>
+                              href="/dashboard/management/compra/{{x._id}}"><i class="fas fa-pen"></i></a>
                           <a type="button" class="btn btn-danger d-inline-block m-1" ><i
                                   class="far fa-trash-alt" (click)="delete(x._id)"></i></a>
                       </td>
@@ -41,3 +39,4 @@
       </div>
   </div>
 </div>
+
