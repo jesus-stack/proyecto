@@ -20,10 +20,10 @@
                     <td>{{ x.destino }}</td>
                     <td>{{ x.porc_descuento }}</td>
                     <td>
-                        <button class="btn btn-secondary d-inline-block m-1" routerLink="/rutas/{{x._id}}"><i
-                                class="fas fa-pen"></i></button>
-                        <button class="btn btn-danger d-inline-block m-1" (click)="deleteRuta(x._id)"><i
-                                class="far fa-trash-alt"></i></button>
+                        <a class="btn btn-secondary d-inline-block m-1" href="/dashboard/management/ruta/{{x._id}}"><i
+                                class="fas fa-pen"></i></a>
+                        <a class="btn btn-danger d-inline-block m-1" (click)="deleteRuta(x._id)"><i
+                                class="far fa-trash-alt"></i></a>
                     </td>
                 </tr>
             </tbody>
