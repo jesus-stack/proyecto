@@ -14,7 +14,14 @@ userController.getuser= async (req, res,next)=>{
     res.json(users);
 };
 userController.deleteuser= async (req, res,next)=>{
-     await model.findByIdAndRemove(req.params.id);
+  
+    habilitado = false;
+    const user = await model.findOneAndUpdate(
+        { _id: req.params.id },
+        { habilitado },
+        { new: true }
+    );
+    
     res.json('eliminado exitosamente');
 };
 userController.getById= async (req, res,next)=>{
@@ -22,8 +29,11 @@ userController.getById= async (req, res,next)=>{
    res.json(user);
 };
 userController.updateuser= async (req, res,next)=>{
-    await model.findByIdAndUpdate(req.params.id,req.body);
-   res.json('editado exitosamente');
+   const user =  await model.findByIdAndUpdate(req.params.id,req.body);
+   if(!user){
+    res.json({ success: false, msg: 'ha ocurrido un error.' });
+   }
+   res.json({ success: true, msg: 'editado exitosamente.' });
 };
 
 

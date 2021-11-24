@@ -1,0 +1,48 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Formulario Compra</h5>
+    <hr>
+    <form [formGroup]="compraForm" (ngSubmit)="submitForm()">
+      <div class="row mb-3">
+          <div class="col-lg-12">
+              <label class="form-label">Usuario</label>
+          
+                  <select class="form-select" name="Usuario" formControlName="Usuario">
+                      <option *ngFor="let x of users" [ngValue]="x._id">{{x.name}}</option>
+                  </select>
+
+          </div>
+      </div>
+
+      <div class="row">
+          <div class="col-lg-6">
+              <div class="mb-3">
+                  <label class="form-label">Cantidad</label>
+                  <input type="number" class="form-control" name="Cantidad" formControlName="Cantidad">
+              </div>
+          </div>
+          <div class="col-lg-6">
+              <div class="mb-3">
+                  <label class="form-label">Subtotal</label>
+                  <input type="number" class="form-control" name="Subtotal" formControlName="Subtotal">
+              </div>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6">
+            <div class="mb-3">
+                <label class="form-label">Descuento</label>
+                <input type="number" class="form-control" name="Descuento" formControlName="Descuento">
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="mb-3">
+                <label class="form-label">Monto Total</label>
+                <input type="number" class="form-control" name="MontoTotal" formControlName="MontoTotal">
+            </div>
+        </div>
+    </div>
+      <button type="submit" class="btn btn-primary mt-4">Guardar</button>
+  </form>
+  </div>
+</div>

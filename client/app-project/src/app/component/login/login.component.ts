@@ -29,7 +29,7 @@ UserForm: FormGroup;
       if(data.success){
         this.toastr.success( 'Autenticacion Exitosa','Iniciar Sesion Usuario');
         if(data.user.role=='admin'){
-          this.router.navigate(['admin-home']);
+          this.router.navigate(['dashboard']);
         }else{
           this.router.navigate(['']);
         }

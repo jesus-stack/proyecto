@@ -3,9 +3,9 @@
     rel="stylesheet">
 
 <div id="wrapper">
-    
+
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-        
+
         <br>
 
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/dashboard">
@@ -26,10 +26,22 @@
         <hr class="sidebar-divider">
 
         <li class="nav-item">
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseZero"
+          aria-expanded="true" aria-controls="collapseOne">
+          <i class="fas fa-plane"></i>
+          <span> Usuarios</span>
+      </a>
+
+      <div id="collapseZero" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+              <a class="collapse-item" href="dashboard/management/user/form">Crear Usuario</a>
+              <a class="collapse-item" href="dashboard/management/user/list">Lista de Usuarios</a>
+          </div>
+      </div>
 
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne"
                 aria-expanded="true" aria-controls="collapseOne">
-                <i class="fas fa-plane"></i>                
+                <i class="fas fa-plane"></i>
                 <span> Vuelos</span>
             </a>
 
@@ -45,13 +57,26 @@
                 <i class="far fa-calendar-alt"></i>
                 <span> Tipos de Aviones</span>
             </a>
-            
-            <div id="collapseTwo" class="collapse" data-parent="#accordionSidebar">
+
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <a class="collapse-item" href="dashboard/management/tipoavion/form">Crear Avion</a>
                     <a class="collapse-item" href="dashboard/management/tipoavion/list">Lista de Aviones</a>
                 </div>
             </div>
+
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree"
+            aria-expanded="true" aria-controls="collapseTwo">
+            <i class="far fa-calendar-alt"></i>
+            <span> Compras</span>
+        </a>
+
+        <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="dashboard/management/compra/form">Crear Compra</a>
+                <a class="collapse-item" href="dashboard/management/compra/list">Lista de Compras</a>
+            </div>
+        </div>
 
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree"
                 aria-expanded="true">
