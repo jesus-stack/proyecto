@@ -5,13 +5,13 @@ import { UsuariosComponent } from './component/admin-home/usuarios/usuarios.comp
 import { HomeComponent } from './component/home/home.component';
 import { LoginComponent } from './component/login/login.component';
 import { RegisterComponent } from './component/register/register.component';
-import { CheckInComponent } from './component/check-in/check-in.component';
 import { VueloFormComponent } from './component/managements/vuelo/vuelo-form/vuelo-form.component';
 import { VueloListComponent } from './component/managements/vuelo/vuelo-list/vuelo-list.component';
 import { TipoavionListComponent } from './component/managements/tipoavion/tipoavion-list/tipoavion-list.component';
 import { TipoavionFormComponent } from './component/managements/tipoavion/tipoavion-form/tipoavion-form.component';
 import { RutaListComponent } from './component/managements/ruta/ruta-list/ruta-list.component';
 import { RutaFormComponent } from './component/managements/ruta/ruta-form/ruta-form.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
 
@@ -21,13 +21,13 @@ const routes: Routes = [
       { path: '', component: HomeComponent },
       { path: 'register', component: RegisterComponent },
       { path: 'login', component: LoginComponent },
-      { path: 'check-in', component: CheckInComponent },
     ]
   },
 
   {
     path: 'dashboard',
     component: AdminHomeComponent,
+    canActivate: [AuthGuard],
     children: [
       { path: 'user', component: UsuariosComponent },
       { path: 'vuelo/list', component: VueloListComponent },
@@ -40,6 +40,11 @@ const routes: Routes = [
       { path: 'ruta/form', component: RutaFormComponent },
       { path: 'ruta/:id', component: RutaFormComponent },
     ]
+  },
+  
+  {
+    path: '**',
+    redirectTo: "/"
   },
 ];
 
