@@ -25,7 +25,7 @@ export class VueloListComponent implements OnInit {
     this.vueloService.getVuelos().subscribe(
       response => {
         this.vuelos = response;
-        result = this.vuelos.filter((x:any)=>x.habilitado === true);
+        result = this.vuelos.filter((x: any) => x.habilitado === true);
         this.vuelos = result;
       },
       error => console.log(error)

@@ -12,6 +12,7 @@ import { TipoavionFormComponent } from './component/managements/tipoavion/tipoav
 import { RutaListComponent } from './component/managements/ruta/ruta-list/ruta-list.component';
 import { RutaFormComponent } from './component/managements/ruta/ruta-form/ruta-form.component';
 import { AuthGuard } from './guards/auth.guard';
+import { ResultsComponent } from './component/results/results.component';
 
 const routes: Routes = [
 
@@ -21,6 +22,7 @@ const routes: Routes = [
       { path: '', component: HomeComponent },
       { path: 'register', component: RegisterComponent },
       { path: 'login', component: LoginComponent },
+      { path: 'results', component: ResultsComponent },
     ]
   },
 

@@ -26,6 +26,8 @@ import { RutaFormComponent } from './component/managements/ruta/ruta-form/ruta-f
 
 import { UserInterceptorProviders } from './services/user-interceptor.service';
 import { AuthGuard } from './guards/auth.guard';
+import { ResultsComponent } from './component/results/results.component';
+import { BusquedaService } from './services/busqueda.service';
 
 
 @NgModule({
@@ -45,7 +47,8 @@ import { AuthGuard } from './guards/auth.guard';
     TipoavionListComponent,
     TipoavionFormComponent,
     RutaListComponent,
-    RutaFormComponent
+    RutaFormComponent,
+    ResultsComponent
   ],
   imports: [
     BrowserModule,
@@ -54,9 +57,9 @@ import { AuthGuard } from './guards/auth.guard';
     HttpClientModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
   ],
-  providers: [UserInterceptorProviders, AuthGuard],
+  providers: [UserInterceptorProviders, AuthGuard, BusquedaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

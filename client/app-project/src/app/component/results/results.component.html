@@ -1,0 +1,23 @@
+<app-header></app-header>
+
+<div class="results mt-5">
+    <div class="container">
+        <div *ngIf="vacio; else notVacio">
+            <p class="msgSinVuelos text-center">Lo Sientimos. Por ahora no se encontraron vuelos disponibles para su
+                solicitud.</p>
+        </div>
+        <ng-template #notVacio>
+            <div *ngFor="let x of vuelos">
+                <div class="card">
+                    <div class="card-body">
+                        <p>{{ x.ruta.origen }} - {{ x.ruta.destino }}</p>
+                        <p>{{ x.tipoAvion.modelo }} Año: {{ x.tipoAvion.anio }}</p>
+                        <p>{{ x.dia }}</p>
+                        <p>{{ x.hora }}</p>
+                        <p>{{ x.horaLlegada }}</p>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </div>
+</div>
