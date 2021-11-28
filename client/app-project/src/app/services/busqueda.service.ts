@@ -5,15 +5,24 @@ import { Injectable } from '@angular/core';
 })
 export class BusquedaService {
 
-  busqueda: any[] = [];
-
   constructor() { }
 
-  getBusqueda(){
-    return this.busqueda;
+  getBusqueda() {
+    const busqueda = window.sessionStorage.getItem('busqueda');
+    if (busqueda) {
+      return JSON.parse(busqueda);
+    }
   }
 
-  setBusqueda(valores: any){
-    this.busqueda = valores;
+  setBusqueda(valores: any) {
+    window.sessionStorage.removeItem('busqueda');
+    window.sessionStorage.setItem('busqueda', JSON.stringify(valores));
+  }
+
+  cargarScript(){
+    let script = document.createElement('script');
+    script.src = "../../../assets/js/form-home.js";
+    let body = document.getElementsByTagName('body')[0];
+    body.appendChild(script);
   }
 }

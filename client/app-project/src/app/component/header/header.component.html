@@ -22,7 +22,7 @@
               Usuario: {{ user.user.user }}
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li><a class="dropdown-item" routerLink="/dashboard">Vista Administrador</a></li>
+              <li *ngIf="user.user.role === 'admin'"><a class="dropdown-item" routerLink="/dashboard">Vista Administrador</a></li>
               <li><a class="dropdown-item" (click)="cerrarSesion()">Cerrar Sesion</a></li>
             </ul>
           </div>

@@ -28,6 +28,7 @@ export class HeaderComponent implements OnInit {
     if(token != null){
       this.isValid = true;
       this.user = this.tokenService.getUser();
+      console.log(this.user);
     }
   }
 

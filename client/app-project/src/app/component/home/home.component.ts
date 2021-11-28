@@ -16,11 +16,12 @@ export class HomeComponent implements OnInit {
     origen: new FormControl('', Validators.required),
     destino: new FormControl('', Validators.required),
     fechaIda: new FormControl('', Validators.required),
-    fechaVuelta: new FormControl('', Validators.required),
+    fechaVuelta: new FormControl(''),
     radioGroup: new FormControl('', Validators.required),
   });
 
   vuelosFiltrados: any;
+  vuelosFiltradosVuelta: any;
 
   constructor(
     private vueloService: VueloService,
@@ -29,28 +30,64 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.busquedaService.setBusqueda([]);
+    this.busquedaService.setBusqueda(null);
+    this.busquedaService.cargarScript();
   }
 
   submitSearchForm() {
-    if (true) {
-      this.vueloService.getVuelos().subscribe(
-        response => {
-          this.vuelosFiltrados = response;
-          this.vuelosFiltrados = this.vuelosFiltrados.filter((x:any) => {
-            return x.ruta.origen == this.searchForm.value.origen 
-            && x.ruta.destino == this.searchForm.value.destino 
-            && x.dia == this.searchForm.value.fechaIda;
-          });
-          this.busquedaService.setBusqueda(this.vuelosFiltrados);
-          this.router.navigate(['/results']);
-        },
-        error => {
-          console.log(error);
-        });
-    } else {
-      alert("Formulario Invalido");
+
+    let valorRadio = this.searchForm.value.radioGroup;
+
+    if (valorRadio === 'ida') {
+
+      if (this.searchForm.valid) {
+        this.vueloService.getVuelos().subscribe(
+          response => {
+            this.vuelosFiltrados = response;
+            this.vuelosFiltrados = this.vuelosFiltrados.filter((x: any) => {
+              return x.ruta.origen == this.searchForm.value.origen
+                && x.ruta.destino == this.searchForm.value.destino
+                && x.dia == this.searchForm.value.fechaIda;
+            });
+            this.busquedaService.setBusqueda(this.vuelosFiltrados);
+            this.router.navigate(['/results']);
+          },
+          error => {
+            console.log(error);
+          }
+        );
+      }
+    } else if (valorRadio === 'idaVuelta' && this.searchForm.value.fechaVuelta !== '') {
+      if (this.searchForm.valid) {
+        this.vueloService.getVuelos().subscribe(
+          response => {
+            this.vuelosFiltrados = response;
+            this.vuelosFiltradosVuelta = response;
+
+            this.vuelosFiltrados = this.vuelosFiltrados.filter((x: any) => {
+              return x.ruta.origen == this.searchForm.value.origen
+                && x.ruta.destino == this.searchForm.value.destino
+                && x.dia == this.searchForm.value.fechaIda;
+            });
+
+            this.vuelosFiltradosVuelta = this.vuelosFiltradosVuelta.filter((x: any) => {
+              return x.ruta.destino == this.searchForm.value.origen
+                && x.dia == this.searchForm.value.fechaVuelta;
+            });
+
+            this.vuelosFiltrados.push({"vuelta": "Vuelos de vuelta"});
+
+            for (let i = 0; i < this.vuelosFiltradosVuelta.length; i++) {
+              this.vuelosFiltrados.push(this.vuelosFiltradosVuelta[i]);
+            }
+            this.busquedaService.setBusqueda(this.vuelosFiltrados);
+            this.router.navigate(['/results']);
+          },
+          error => {
+            console.log(error);
+          }
+        );
+      }
     }
   }
-
 }

@@ -5,7 +5,7 @@ const auth = require('../middleware/user');
 
 router.get("/", vueloController.getAll);
 
-router.get("/:id", auth, vueloController.getById);
+router.get("/:id", vueloController.getById);
 
 router.post("/", auth, vueloController.create);
 

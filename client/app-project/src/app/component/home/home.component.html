@@ -37,30 +37,61 @@
       <div style="border-radius: 0.5rem;">
         <div class="row">
           <div class="col-lg-6 pl-5 mt-3 mb-3">
-            <form [formGroup]="searchForm" (ngSubmit)="submitSearchForm()">
+            <form [formGroup]="searchForm" (ngSubmit)="submitSearchForm()" #f="ngForm">
               <div class="mb-3">
                 <label for="inputOrigen" class="form-label">Origen</label>
-                <input type="text" class="form-control" id="inputOrigen" formControlName="origen">
+                <input type="text" class="form-control" id="inputOrigen" formControlName="origen" placeholder="Ingrese desde donde viaja">
+                <div class="pt-1" *ngIf="!searchForm.value.origen && f.submitted">
+                  <p class="text-danger">
+                    El origen es requerido
+                  </p>
+                </div>
               </div>
               <div class="mb-3">
                 <label for="inputDestino" class="form-label">Destino</label>
-                <input type="text" class="form-control" id="inputDestino" formControlName="destino">
+                <input type="text" class="form-control" id="inputDestino" formControlName="destino" placeholder="Ingrese su destino">
+                <div class="pt-1" *ngIf="!searchForm.value.destino && f.submitted">
+                  <p class="text-danger">
+                    El destino es requerido
+                  </p>
+                </div>
               </div>
-              <div class="mb-3">
-                <label for="inputFechaIda" class="form-label">Fecha Ida</label>
-                <input type="date" class="form-control" id="inputFechaIda" formControlName="fechaIda">
-              </div>
-              <div class="mb-3">
-                <label for="inputFechaVuelta" class="form-label">Fecha Vuelta</label>
-                <input type="date" class="form-control" id="inputFechaVuelta" formControlName="fechaVuelta" readonly>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="mb-3">
+                    <label for="inputFechaIda" class="form-label">Fecha Ida</label>
+                    <input type="date" class="form-control" id="inputFechaIda" formControlName="fechaIda">
+                  </div>
+                </div>
+                <div class="pt-1" *ngIf="!searchForm.value.fechaIda && f.submitted">
+                  <p class="text-danger">
+                    La fecha de ida es requerida
+                  </p>
+                </div>
+                <div class="col-lg-6">
+                  <div class="mb-3">
+                    <label for="inputFechaVuelta" class="form-label">Fecha Vuelta</label>
+                    <input type="date" class="form-control" id="inputFechaVuelta" formControlName="fechaVuelta">
+                  </div>
+                </div>
+                <div class="pt-1" *ngIf="this.searchForm.value.radioGroup === 'idaVuelta' && this.searchForm.value.fechaVuelta === '' && f.submitted">
+                  <p class="text-danger">
+                    La fecha de vuelta es requerida
+                  </p>
+                </div>
               </div>
               <div class="form-check mb-3">
-                <input class="form-check-input" onclick="radioChecked()" id="radioIdaVuelta" type="radio" value="Ida y vuelta" formControlName="radioGroup">
+                <input class="form-check-input" id="soloIda" onclick="radioChecked(true)" type="radio" value="ida" formControlName="radioGroup">
+                <label class="form-check-label">Solo ida</label>
+              </div>
+              <div class="form-check mb-3">
+                <input class="form-check-input" onclick="radioChecked(false)" id="radioIdaVuelta" type="radio" value="idaVuelta" formControlName="radioGroup">
                 <label class="form-check-label">Ida y vuelta</label>
               </div>
-              <div class="form-check mb-3">
-                <input class="form-check-input" type="radio" value="Solo ida" formControlName="radioGroup">
-                <label class="form-check-label">Solo ida</label>
+              <div class="pt-1" *ngIf="!searchForm.value.radioGroup && f.submitted">
+                <p class="text-danger">
+                  Estas opciones son necesarias
+                </p>
               </div>
               <button type="submit" class="btn btn-primary">Buscar</button>
             </form>
