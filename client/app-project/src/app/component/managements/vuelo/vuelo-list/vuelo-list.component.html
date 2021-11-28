@@ -1,4 +1,4 @@
-<a class="btn btn-primary mb-3" href="/dashboard/management/flight/form">
+<a class="btn btn-primary mb-3" href="/dashboard/vuelo/form">
     <i class="fas fa-plus d-inline-block m-1"></i>
     Crear Nuevo
 </a>
@@ -14,6 +14,7 @@
                         <th scope="col">Dia</th>
                         <th scope="col">Hora</th>
                         <th scope="col">Hora llegada</th>
+                        <th scope="col">Precio</th>
                         <th scope="col">Opciones</th>
                     </tr>
                 </thead>
@@ -24,9 +25,10 @@
                         <td>{{ x.dia }}</td>
                         <td>{{ x.hora }}</td>
                         <td>{{ x.horaLlegada }}</td>
+                        <td>${{ x.precio }}</td>
                         <td>
                             <a type="button" class="btn btn-secondary d-inline-block m-1"
-                                href="/dashboard/management/flight/{{x._id}}"><i class="fas fa-pen"></i></a>
+                                href="/dashboard/vuelo/{{x._id}}"><i class="fas fa-pen"></i></a>
                             <a type="button" class="btn btn-danger d-inline-block m-1" (click)="deleteVuelo(x._id)"><i
                                     class="far fa-trash-alt"></i></a>
                         </td>

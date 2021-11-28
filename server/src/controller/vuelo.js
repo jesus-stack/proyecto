@@ -14,7 +14,7 @@ module.exports.getById = async (req, res, next) => {
 
 module.exports.create = async (req, res, next) => {
 
-    const { ruta, tipoAvion, dia, hora } = req.body;
+    const { ruta, tipoAvion, dia, hora, precio } = req.body;
 
     const habilitado = true;
 
@@ -24,7 +24,7 @@ module.exports.create = async (req, res, next) => {
     time.setTime(time.getTime() + parseInt(rutaTemp.duracion) * 60000);
     const horaLlegada = time.getMinutes() + ':' + hora.substr(hora.indexOf(":") + 1);
 
-    const vuelo = new vueloModel({ ruta, tipoAvion, dia, hora, horaLlegada, habilitado });
+    const vuelo = new vueloModel({ ruta, tipoAvion, dia, hora, horaLlegada, habilitado, precio });
     vuelo.save();
     res.json(vuelo);
 };
@@ -42,10 +42,10 @@ module.exports.delete = async (req, res, next) => {
 
 module.exports.update = async (req, res, next) => {
 
-    const { ruta, tipoAvion, dia, hora } = req.body;
+    const { tipoAvion, dia, hora, precio } = req.body;
     const vuelo = await vueloModel.findOneAndUpdate(
         { _id: req.params.id },
-        { ruta, tipoAvion, dia, hora },
+        { tipoAvion, dia, hora, precio },
         { new: true }
     );
     res.json(vuelo);

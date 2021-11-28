@@ -1,4 +1,4 @@
-<a class="btn btn-primary mb-3" href="/dashboard/management/tipoavion/form">
+<a class="btn btn-primary mb-3" href="/dashboard/tipoavion/form">
     <i class="fas fa-plus d-inline-block m-1"></i>
     Crear Nuevo
 </a>
@@ -29,7 +29,7 @@
                         <td>{{ x.cant_Filas }}</td>
                         <td>{{ x.cant_AsientosFila }}</td>
                         <td>
-                            <a class="btn btn-secondary d-inline-block m-1" href="dashboard/management/tipoavion/{{x._id}}"><i
+                            <a class="btn btn-secondary d-inline-block m-1" href="dashboard/tipoavion/{{x._id}}"><i
                                     class="fas fa-pen"></i></a>
                             <a class="btn btn-danger d-inline-block m-1" (click)="deleteTipoAvion(x._id)"><i
                                     class="far fa-trash-alt"></i></a>
