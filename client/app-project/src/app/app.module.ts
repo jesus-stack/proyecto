@@ -16,13 +16,17 @@ import { CheckInComponent } from './component/check-in/check-in.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { UsuariosComponent } from './component/admin-home/usuarios/usuarios.component';
 import { VueloListComponent } from './component/managements/vuelo/vuelo-list/vuelo-list.component';
 import { VueloFormComponent } from './component/managements/vuelo/vuelo-form/vuelo-form.component';
 import { TipoavionListComponent } from './component/managements/tipoavion/tipoavion-list/tipoavion-list.component';
 import { TipoavionFormComponent } from './component/managements/tipoavion/tipoavion-form/tipoavion-form.component';
 import { RutaListComponent } from './component/managements/ruta/ruta-list/ruta-list.component';
 import { RutaFormComponent } from './component/managements/ruta/ruta-form/ruta-form.component';
+import { UsuarioListComponent } from './component/managements/usuario/usuario-list/usuario-list.component';
+import { UsuarioFormComponent } from './component/managements/usuario/usuario-form/usuario-form.component';
+import { CompraListComponent } from './component/managements/compra/compra-list/compra-list.component';
+import { CompraFormComponent } from './component/managements/compra/compra-form/compra-form.component';
+
 
 import { UserInterceptorProviders } from './services/user-interceptor.service';
 import { AuthGuard } from './guards/auth.guard';
@@ -39,7 +43,6 @@ import { BusquedaService } from './services/busqueda.service';
     RegisterComponent,
     LoginComponent,
     AdminHomeComponent,
-    UsuariosComponent,
     LoginComponent,
     CheckInComponent,
     VueloListComponent,
@@ -48,7 +51,11 @@ import { BusquedaService } from './services/busqueda.service';
     TipoavionFormComponent,
     RutaListComponent,
     RutaFormComponent,
-    ResultsComponent
+    ResultsComponent,
+    UsuarioListComponent,
+    UsuarioFormComponent,
+    CompraListComponent,
+    CompraFormComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,43 @@
+<a class="btn btn-primary mb-3" href="/dashboard/management/user/form">
+  <i class="fas fa-plus d-inline-block m-1"></i>
+  Crear Nuevo
+</a>
+
+<div class="card">
+  <div class="card-body">
+      <div class="table-responsive">
+          <table class="table table-hover">
+              <thead class="table-white">
+                  <tr>
+                      <th scope="col">Usuario</th>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">Correo electronico</th>
+                      <th scope="col">Fecha de Nacimiento</th>
+                      <th scope="col">Telefono</th>
+                      <th scope="col">Rol</th>
+                      <th scope="col">Opciones</th>
+                  </tr>
+              </thead>
+              <tbody>
+                 <tr *ngFor="let x of users">
+
+                   <td>{{x.user}}</td>
+                   <td>{{x.name}}</td>
+                   <td>{{x.email}}</td>
+                   <td>{{x.birthdate}}</td>
+                   <td>{{x.mobile}}</td>
+                   <td>{{x.role}}</td>
+
+
+                      <td>
+                          <a type="button" class="btn btn-secondary d-inline-block m-1"
+                              href="/dashboard/management/user/{{x._id}}"><i class="fas fa-pen"></i></a>
+                          <a type="button" class="btn btn-danger d-inline-block m-1" ><i
+                                  class="far fa-trash-alt" (click)="delete(x._id)"></i></a>
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
+</div>

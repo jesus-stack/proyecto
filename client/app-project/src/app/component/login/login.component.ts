@@ -38,8 +38,6 @@ export class LoginComponent implements OnInit {
         this.toastr.success('Autenticacion Exitosa', 'Iniciar Sesion Usuario');
         this.tokenStorage.saveToken(data.token);
         this.tokenStorage.saveUser(data);
-        console.log(data.token);
-        console.log(data.user);
         if (data.user.role == 'admin') {
           this.router.navigate(['dashboard']);
         } else {
