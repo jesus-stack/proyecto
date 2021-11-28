@@ -28,6 +28,11 @@ import { CompraListComponent } from './component/managements/compra/compra-list/
 import { CompraFormComponent } from './component/managements/compra/compra-form/compra-form.component';
 
 
+import { UserInterceptorProviders } from './services/user-interceptor.service';
+import { AuthGuard } from './guards/auth.guard';
+import { ResultsComponent } from './component/results/results.component';
+import { BusquedaService } from './services/busqueda.service';
+
 
 @NgModule({
   declarations: [
@@ -46,13 +51,11 @@ import { CompraFormComponent } from './component/managements/compra/compra-form/
     TipoavionFormComponent,
     RutaListComponent,
     RutaFormComponent,
+    ResultsComponent,
     UsuarioListComponent,
     UsuarioFormComponent,
     CompraListComponent,
     CompraFormComponent,
- 
-
-
   ],
   imports: [
     BrowserModule,
@@ -61,9 +64,9 @@ import { CompraFormComponent } from './component/managements/compra/compra-form/
     HttpClientModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
   ],
-  providers: [],
+  providers: [UserInterceptorProviders, AuthGuard, BusquedaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

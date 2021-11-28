@@ -19,6 +19,7 @@ export class VueloFormComponent implements OnInit {
     tipoAvion: new FormControl(this.getTiposAviones, Validators.required),
     dia: new FormControl('', Validators.required),
     hora: new FormControl('', Validators.required),
+    precio: new FormControl('', Validators.required),
   });
 
   tiposAviones = <any>[];
@@ -52,6 +53,7 @@ export class VueloFormComponent implements OnInit {
             tipoAvion: data.tipoAvion,
             dia: data.dia,
             hora: data.hora,
+            precio: data.precio
           });
         });
       }
@@ -83,7 +85,7 @@ export class VueloFormComponent implements OnInit {
         this.vueloService.editVuelo(this.vuelo._id,this.postForm.value).subscribe(
           response => {
             alert("Vuelo editado correctamente");
-            this.router.navigate(['dashboard/managements/flight/list']);
+            this.router.navigate(['dashboard/vuelo/list']);
           },
           error => console.log(error)
         )
@@ -91,7 +93,7 @@ export class VueloFormComponent implements OnInit {
         this.vueloService.createVuelo(this.postForm.value).subscribe(
           response => {
             alert("Vuelo guardado correctamente");
-            this.router.navigate(['dashboard/managements/flight/list']);
+            this.router.navigate(['dashboard/vuelo/list']);
           },
           error => console.log(error)
         )
