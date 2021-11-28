@@ -74,7 +74,7 @@ export class CompraFormComponent implements OnInit {
               this.toastr.error(response.msg, 'Registro Usuario');
             }
 
-            this.router.navigate(['dashboard/management/compra/list']);
+            this.router.navigate(['dashboard/compra/list']);
           },
           error => console.log(error)
         )
@@ -86,7 +86,7 @@ export class CompraFormComponent implements OnInit {
             } else {
               this.toastr.error(response.msg, 'Registro Usuario');
             }
-            this.router.navigate(['dashboard/management/compra/list']);
+            this.router.navigate(['dashboard/compra/list']);
           },
           error => console.log(error)
         )
