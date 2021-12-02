@@ -18,7 +18,9 @@ import { UsuarioListComponent } from './component/managements/usuario/usuario-li
 import { UsuarioFormComponent } from './component/managements/usuario/usuario-form/usuario-form.component';
 import { CompraListComponent } from './component/managements/compra/compra-list/compra-list.component';
 import { CompraFormComponent } from './component/managements/compra/compra-form/compra-form.component';
+import { LogginGuard } from './guards/loggin.guard';
 import { PagoComponent } from './component/pago/pago.component';
+
 
 
 const routes: Routes = [
@@ -27,8 +29,6 @@ const routes: Routes = [
     path: '',
     children: [
       { path: '', component: HomeComponent },
-      { path: 'register', component: RegisterComponent },
-      { path: 'login', component: LoginComponent },
       { path: 'results', component: ResultsComponent },
       { path: 'payment', component: PagoComponent },
     ]
@@ -56,14 +56,18 @@ const routes: Routes = [
       { path: 'compra/:id', component: CompraFormComponent },
     ]
   },
-  
+
+  { path: 'register', canActivate: [LogginGuard], component: RegisterComponent },
+  { path: 'login', canActivate: [LogginGuard], component: LoginComponent },
+
   {
     path: '**',
     redirectTo: "/"
   },
+
 ];
 
- @NgModule({
+@NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
