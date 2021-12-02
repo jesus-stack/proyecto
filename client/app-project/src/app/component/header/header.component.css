@@ -32,7 +32,3 @@
 li a{
   cursor: pointer;
 }
-
-.navbar-responsive[_ngcontent-scp-c54] ul[_ngcontent-scp-c54] li[_ngcontent-scp-c54]:last-child {
-  padding: 0 !important;
-}

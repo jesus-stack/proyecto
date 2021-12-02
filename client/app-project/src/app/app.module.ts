@@ -78,8 +78,8 @@ import { LogginGuard } from './guards/loggin.guard';
     BrowserAnimationsModule,
     FormsModule,
     NgxPayPalModule,
-    NgxStripeModule.forRoot('pk_test_51K1WGSFrzYsUbyY0AABxZZ6OXJHJbZrc2BcAjVzB9p1BVJVIakY9no9JmhYM9DB4vomZad5ZGOZ6AKMUCy9yU0Kd00smuVENUe')
-    FormsModule,
+    NgxStripeModule.forRoot('pk_test_51K1WGSFrzYsUbyY0AABxZZ6OXJHJbZrc2BcAjVzB9p1BVJVIakY9no9JmhYM9DB4vomZad5ZGOZ6AKMUCy9yU0Kd00smuVENUe'),
+    FormsModule
   ],
   providers: [UserInterceptorProviders, AuthGuard, LogginGuard, BusquedaService],
   bootstrap: [AppComponent]
