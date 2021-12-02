@@ -26,18 +26,18 @@
         <hr class="sidebar-divider">
 
         <li class="nav-item">
-          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseZero"
-          aria-expanded="true" aria-controls="collapseOne">
-          <i class="fas fa-user"></i>
-          <span> Usuarios</span>
-      </a>
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseZero"
+                aria-expanded="true" aria-controls="collapseOne">
+                <i class="fas fa-user"></i>
+                <span> Usuarios</span>
+            </a>
 
-      <div id="collapseZero" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-              <a class="collapse-item" href="dashboard/management/user/form">Crear Usuario</a>
-              <a class="collapse-item" href="dashboard/management/user/list">Lista de Usuarios</a>
-          </div>
-      </div>
+            <div id="collapseZero" class="collapse" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" href="dashboard/management/user/form">Crear Usuario</a>
+                    <a class="collapse-item" href="dashboard/management/user/list">Lista de Usuarios</a>
+                </div>
+            </div>
 
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne"
                 aria-expanded="true" aria-controls="collapseOne">
@@ -66,17 +66,17 @@
             </div>
 
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree"
-            aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-shopping-bag"></i>
-            <span> Compras</span>
-        </a>
+                aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-shopping-bag"></i>
+                <span> Compras</span>
+            </a>
 
-        <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="dashboard/management/compra/form">Crear Compra</a>
-                <a class="collapse-item" href="dashboard/management/compra/list">Lista de Compras</a>
+            <div id="collapseThree" class="collapse" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" href="dashboard/management/compra/form">Crear Compra</a>
+                    <a class="collapse-item" href="dashboard/management/compra/list">Lista de Compras</a>
+                </div>
             </div>
-        </div>
 
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour"
                 aria-expanded="true">
@@ -84,7 +84,7 @@
                 <span> Rutas</span>
             </a>
 
-            <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div id="collapseFour" class="collapse" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <a class="collapse-item" href="dashboard/ruta/form">Crear Ruta</a>
                     <a class="collapse-item" href="dashboard/ruta/list">Lista de Rutas</a>
@@ -117,13 +117,14 @@
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div class="dropdown">
-                                <a class="dropdown-toggle" href="#" role="button"
-                                    id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
                                     {{ user.user.user }}
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                     <li><a class="dropdown-item" routerLink="/">Vista Cliente</a></li>
-                                    <li><a (click)="cerrarSesion()" class="dropdown-item" href="#">Cerrar Sesion</a></li>
+                                    <li><a (click)="cerrarSesion()" class="dropdown-item" href="#">Cerrar Sesion</a>
+                                    </li>
                                 </ul>
                             </div>
                         </a>

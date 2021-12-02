@@ -75,7 +75,9 @@ export class HomeComponent implements OnInit {
                 && x.dia == this.searchForm.value.fechaVuelta;
             });
 
-            this.vuelosFiltrados.push({"vuelta": "Vuelos de vuelta"});
+            if (this.vuelosFiltradosVuelta.length > 0) {
+              this.vuelosFiltrados.push({ "vuelta": "Vuelos de vuelta" });
+            }
 
             for (let i = 0; i < this.vuelosFiltradosVuelta.length; i++) {
               this.vuelosFiltrados.push(this.vuelosFiltradosVuelta[i]);

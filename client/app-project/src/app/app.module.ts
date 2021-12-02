@@ -32,6 +32,7 @@ import { UserInterceptorProviders } from './services/user-interceptor.service';
 import { AuthGuard } from './guards/auth.guard';
 import { ResultsComponent } from './component/results/results.component';
 import { BusquedaService } from './services/busqueda.service';
+import { LogginGuard } from './guards/loggin.guard';
 
 
 @NgModule({
@@ -66,7 +67,7 @@ import { BusquedaService } from './services/busqueda.service';
     BrowserAnimationsModule,
     FormsModule,
   ],
-  providers: [UserInterceptorProviders, AuthGuard, BusquedaService],
+  providers: [UserInterceptorProviders, AuthGuard, LogginGuard, BusquedaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
