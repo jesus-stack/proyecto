@@ -1,15 +1,16 @@
 const express = require("express");
 const router = express.Router();
 const tipoAvionController = require("../controller/tipoAvion");
+const auth = require('../middleware/user');
 
-router.get("/", tipoAvionController.getAll);
+router.get("/", auth, tipoAvionController.getAll);
 
-router.get("/:id", tipoAvionController.getById);
+router.get("/:id", auth, tipoAvionController.getById);
 
-router.post("/", tipoAvionController.create);
+router.post("/", auth, tipoAvionController.create);
 
-router.delete("/:id", tipoAvionController.delete);
+router.delete("/:id", auth, tipoAvionController.delete);
 
-router.put("/:id", tipoAvionController.update);
+router.put("/:id", auth, tipoAvionController.update);
 
 module.exports = router;

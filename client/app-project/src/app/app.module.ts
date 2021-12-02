@@ -32,6 +32,11 @@ import { NgxPayPalModule } from 'ngx-paypal';
 
 // Import the library
 import { NgxStripeModule } from 'ngx-stripe';
+import { UserInterceptorProviders } from './services/user-interceptor.service';
+import { AuthGuard } from './guards/auth.guard';
+import { ResultsComponent } from './component/results/results.component';
+import { BusquedaService } from './services/busqueda.service';
+
 
 
 
@@ -53,6 +58,7 @@ import { NgxStripeModule } from 'ngx-stripe';
     TipoavionFormComponent,
     RutaListComponent,
     RutaFormComponent,
+    ResultsComponent,
     UsuarioListComponent,
     UsuarioFormComponent,
     CompraListComponent,
@@ -72,8 +78,9 @@ import { NgxStripeModule } from 'ngx-stripe';
     FormsModule,
     NgxPayPalModule,
     NgxStripeModule.forRoot('pk_test_51K1WGSFrzYsUbyY0AABxZZ6OXJHJbZrc2BcAjVzB9p1BVJVIakY9no9JmhYM9DB4vomZad5ZGOZ6AKMUCy9yU0Kd00smuVENUe')
+    FormsModule,
   ],
-  providers: [],
+  providers: [UserInterceptorProviders, AuthGuard, BusquedaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

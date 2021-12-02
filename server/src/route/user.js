@@ -1,31 +1,27 @@
-//rutas
 const express = require('express');
 const userController = require('../controller/user');
-const Router =express.Router();
-
+const router = express.Router();
 const auth = require('../middleware/user');
 
 //obtener
-//Router.get('/all',auth ,userController.getuser)  ????
+//router.get('/all',auth ,userController.getuser)  ????
 
-Router.get('/' ,userController.getuser)
+router.get('/' , userController.getuser)
 //sigin
-Router.post('/signin',userController.signin)
+router.post('/signin', userController.signin)
 //obtener
-Router.post('/signup',userController.signup)
+router.post('/signup', userController.signup)
 
 //crear
-//Router.post('/',userController.createuser)
+//router.post('/', userController.createuser)
 
 //eliminar
-Router.delete('/:id',userController.deleteuser)
+router.delete('/:id', userController.deleteuser)
 
 //obtenerbyid
-Router.get('/:id',userController.getById)
+router.get('/:id', userController.getById)
 
 //obtenerbyid
-Router.put('/:id',userController.updateuser)
+router.put('/:id', userController.updateuser)
 
-
-
-module.exports = Router;
+module.exports = router;

@@ -40,6 +40,7 @@ export class RutaFormComponent implements OnInit {
         this.editMode = true;
         this.rutaService.getRutaById(param.id).subscribe(data => {
           this.ruta = data;
+          console.log(data);
           this.postForm.setValue({
             identificador: data.identificador,
             duracion: data.duracion,
@@ -59,7 +60,7 @@ export class RutaFormComponent implements OnInit {
         this.rutaService.editRuta(this.ruta._id,this.postForm.value).subscribe(
           response => {
             alert("Ruta editada correctamente");
-            this.router.navigate(['ruta/list']);
+            this.router.navigate(['dashboard/ruta/list']);
           },
           error => console.log(error)
         )
@@ -67,7 +68,7 @@ export class RutaFormComponent implements OnInit {
         this.rutaService.createRuta(this.postForm.value).subscribe(
           response => {
             alert("Ruta guardado correctamente");
-            this.router.navigate(['ruta/list']);
+            this.router.navigate(['dashboard/ruta/list']);
           },
           error => console.log(error)
         )

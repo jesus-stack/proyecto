@@ -1,0 +1,21 @@
+.results{
+    min-height: 17rem;
+}
+
+.msgSinVuelos{
+    width: 40%;
+    margin: 15% auto;
+}
+
+.msgSinVuelos p{
+    font-size: 1.6rem;
+}
+
+.titulo{
+    font-size: 1.2rem;
+    margin-left: 0.2rem;
+}
+
+input[type="checkbox"] {
+    margin-left: 2rem !important;
+}

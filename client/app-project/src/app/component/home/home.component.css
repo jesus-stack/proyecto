@@ -1,0 +1,6 @@
+:is(input,textarea).ng-invalid {
+    border-left: 1px solid gainsboro !important;
+}
+:is(input,textarea).ng-valid {
+    border-left: 1px solid gainsboro !important;
+}

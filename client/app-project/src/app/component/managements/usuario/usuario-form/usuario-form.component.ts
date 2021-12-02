@@ -84,7 +84,7 @@ if(param.id){
         this.toastr.success(error, 'Registro Usuario');
       });
     }
-    this.route.navigate(['dashboard/management/user/list']);
+    this.route.navigate(['dashboard/user/list']);
 
   }
 
