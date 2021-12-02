@@ -19,6 +19,8 @@ import { UsuarioFormComponent } from './component/managements/usuario/usuario-fo
 import { CompraListComponent } from './component/managements/compra/compra-list/compra-list.component';
 import { CompraFormComponent } from './component/managements/compra/compra-form/compra-form.component';
 import { LogginGuard } from './guards/loggin.guard';
+import { PagoComponent } from './component/pago/pago.component';
+
 
 
 const routes: Routes = [
@@ -28,6 +30,7 @@ const routes: Routes = [
     children: [
       { path: '', component: HomeComponent },
       { path: 'results', component: ResultsComponent },
+      { path: 'payment', component: PagoComponent },
     ]
   },
 
