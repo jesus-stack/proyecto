@@ -15,6 +15,7 @@ import { UsuarioListComponent } from './component/managements/usuario/usuario-li
 import { UsuarioFormComponent } from './component/managements/usuario/usuario-form/usuario-form.component';
 import { CompraListComponent } from './component/managements/compra/compra-list/compra-list.component';
 import { CompraFormComponent } from './component/managements/compra/compra-form/compra-form.component';
+import { PagoComponent } from './component/pago/pago.component';
 
 const routes: Routes = [
 
@@ -25,6 +26,7 @@ const routes: Routes = [
       { path: 'register', component: RegisterComponent },
       { path: 'login', component: LoginComponent },
       { path: 'check-in', component: CheckInComponent },
+      { path: 'payment', component: PagoComponent },
     ]
   },
 

@@ -26,6 +26,13 @@ import { UsuarioListComponent } from './component/managements/usuario/usuario-li
 import { UsuarioFormComponent } from './component/managements/usuario/usuario-form/usuario-form.component';
 import { CompraListComponent } from './component/managements/compra/compra-list/compra-list.component';
 import { CompraFormComponent } from './component/managements/compra/compra-form/compra-form.component';
+import { PagoComponent } from './component/pago/pago.component';
+
+import { NgxPayPalModule } from 'ngx-paypal';
+
+// Import the library
+import { NgxStripeModule } from 'ngx-stripe';
+
 
 
 
@@ -50,7 +57,8 @@ import { CompraFormComponent } from './component/managements/compra/compra-form/
     UsuarioFormComponent,
     CompraListComponent,
     CompraFormComponent,
- 
+    PagoComponent,
+
 
 
   ],
@@ -61,7 +69,9 @@ import { CompraFormComponent } from './component/managements/compra/compra-form/
     HttpClientModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    NgxPayPalModule,
+    NgxStripeModule.forRoot('pk_test_51K1WGSFrzYsUbyY0AABxZZ6OXJHJbZrc2BcAjVzB9p1BVJVIakY9no9JmhYM9DB4vomZad5ZGOZ6AKMUCy9yU0Kd00smuVENUe')
   ],
   providers: [],
   bootstrap: [AppComponent]
