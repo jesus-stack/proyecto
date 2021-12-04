@@ -26,18 +26,18 @@
         <hr class="sidebar-divider">
 
         <li class="nav-item">
-          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseZero"
-          aria-expanded="true" aria-controls="collapseOne">
-          <i class="fas fa-plane"></i>
-          <span> Usuarios</span>
-      </a>
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseZero"
+                aria-expanded="true" aria-controls="collapseOne">
+                <i class="fas fa-user"></i>
+                <span> Usuarios</span>
+            </a>
 
-      <div id="collapseZero" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-              <a class="collapse-item" href="dashboard/management/user/form">Crear Usuario</a>
-              <a class="collapse-item" href="dashboard/management/user/list">Lista de Usuarios</a>
-          </div>
-      </div>
+            <div id="collapseZero" class="collapse" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" href="dashboard/management/user/form">Crear Usuario</a>
+                    <a class="collapse-item" href="dashboard/management/user/list">Lista de Usuarios</a>
+                </div>
+            </div>
 
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne"
                 aria-expanded="true" aria-controls="collapseOne">
@@ -47,47 +47,47 @@
 
             <div id="collapseOne" class="collapse" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="dashboard/management/flight/form">Crear Vuelo</a>
-                    <a class="collapse-item" href="dashboard/management/flight/list">Lista de Vuelos</a>
+                    <a class="collapse-item" href="dashboard/vuelo/form">Crear Vuelo</a>
+                    <a class="collapse-item" href="dashboard/vuelo/list">Lista de Vuelos</a>
                 </div>
             </div>
 
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                 aria-expanded="true">
-                <i class="far fa-calendar-alt"></i>
+                <i class="fas fa-sliders-h"></i>
                 <span> Tipos de Aviones</span>
             </a>
 
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div id="collapseTwo" class="collapse" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="dashboard/management/tipoavion/form">Crear Avion</a>
-                    <a class="collapse-item" href="dashboard/management/tipoavion/list">Lista de Aviones</a>
+                    <a class="collapse-item" href="dashboard/tipoavion/form">Crear Avion</a>
+                    <a class="collapse-item" href="dashboard/tipoavion/list">Lista de Aviones</a>
                 </div>
             </div>
 
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree"
-            aria-expanded="true" aria-controls="collapseTwo">
-            <i class="far fa-calendar-alt"></i>
-            <span> Compras</span>
-        </a>
-
-        <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="dashboard/management/compra/form">Crear Compra</a>
-                <a class="collapse-item" href="dashboard/management/compra/list">Lista de Compras</a>
-            </div>
-        </div>
-
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree"
-                aria-expanded="true">
-                <i class="far fa-calendar-alt"></i>
-                <span>Rutas</span>
+                aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-shopping-bag"></i>
+                <span> Compras</span>
             </a>
-            
-            <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+
+            <div id="collapseThree" class="collapse" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="dashboard/management/ruta/form">Crear Ruta</a>
-                    <a class="collapse-item" href="dashboard/management/ruta/list">Lista de Rutas</a>
+                    <a class="collapse-item" href="dashboard/management/compra/form">Crear Compra</a>
+                    <a class="collapse-item" href="dashboard/management/compra/list">Lista de Compras</a>
+                </div>
+            </div>
+
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour"
+                aria-expanded="true">
+                <i class="fas fa-globe-americas"></i>
+                <span> Rutas</span>
+            </a>
+
+            <div id="collapseFour" class="collapse" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" href="dashboard/ruta/form">Crear Ruta</a>
+                    <a class="collapse-item" href="dashboard/ruta/list">Lista de Rutas</a>
                 </div>
             </div>
 
@@ -113,23 +113,21 @@
                 </form>
 
                 <ul class="navbar-nav ml-auto">
-
-                    <div class="topbar-divider d-none d-sm-block"></div>
-
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-user"></i>
-                            <span class="ml-3 mr-2 d-none d-lg-inline text-gray-600 small">Jose Campos</span>
+                            <div class="dropdown">
+                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    {{ user.user.user }}
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <li><a class="dropdown-item" routerLink="/">Vista Cliente</a></li>
+                                    <li><a (click)="cerrarSesion()" class="dropdown-item" href="#">Cerrar Sesion</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </a>
-
-                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                            aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Cerrar Sesion
-                            </a>
-                        </div>
                     </li>
                 </ul>
             </nav>

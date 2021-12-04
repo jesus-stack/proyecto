@@ -1,4 +1,7 @@
-<button class="btn btn-primary mb-3">Crear nueva ruta</button>
+<a class="btn btn-primary mb-3" href="/dashboard/ruta/form">
+    <i class="fas fa-plus d-inline-block m-1"></i>
+    Crear Nuevo
+</a>
 <div class="card">
     <div class="card-body">
         <div class="table-responsive">
@@ -20,7 +23,7 @@
                     <td>{{ x.destino }}</td>
                     <td>{{ x.porc_descuento }}</td>
                     <td>
-                        <a class="btn btn-secondary d-inline-block m-1" href="/dashboard/management/ruta/{{x._id}}"><i
+                        <a class="btn btn-secondary d-inline-block m-1" href="/dashboard/ruta/{{x._id}}"><i
                                 class="fas fa-pen"></i></a>
                         <a class="btn btn-danger d-inline-block m-1" (click)="deleteRuta(x._id)"><i
                                 class="far fa-trash-alt"></i></a>

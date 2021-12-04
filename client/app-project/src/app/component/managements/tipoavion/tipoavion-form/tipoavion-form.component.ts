@@ -62,7 +62,7 @@ export class TipoavionFormComponent implements OnInit {
         this.tipoavionservice.editTipoAvion(this.tiposAviones._id, this.postForm.value).subscribe(
           response => {
             alert("Tipo avion editado correctamente");
-            this.router.navigate(['/dashboard/management/tipoavion/list']);
+            this.router.navigate(['/dashboard/tipoavion/list']);
           },
           error => console.log(error)
         )
@@ -71,7 +71,7 @@ export class TipoavionFormComponent implements OnInit {
         this.tipoavionservice.createTipoAvion(this.postForm.value).subscribe(
           response => {
             alert("Tipo avion guardado correctamente");
-            this.router.navigate(['/dashboard/management/tipoavion/list']);
+            this.router.navigate(['/dashboard/tipoavion/list']);
           },
           error => console.log(error)
         )

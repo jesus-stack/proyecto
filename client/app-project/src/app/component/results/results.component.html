@@ -1,0 +1,57 @@
+<app-header></app-header>
+
+<div class="results mt-5">
+    <div class="container">
+        <div class="row">
+            <div *ngIf="vacio; else notVacio">
+                <div class="col-lg-12">
+                    <p class="msgSinVuelos text-center">
+                        Lo Sientimos. Por ahora no se
+                        encontraron vuelos disponibles para su solicitud.
+                    </p>
+                </div>
+            </div>
+            <ng-template #notVacio>
+                <div class="col-lg-12">
+                    <h2 class="titulo mb-4">Vuelos de Ida <i class="fas fa-arrow-right"></i></h2>
+                    <div *ngFor="let x of vuelos">
+                        <div *ngIf="x.vuelta; else notVuelta">
+                            <h2 class="titulo mb-4 mt-4">Vuelos de Vuelta <i class="fas fa-arrow-left"></i></h2>
+                        </div>
+                        <ng-template #notVuelta>
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <table class="table table-borderless">
+                                        <thead>
+                                            <tr>
+                                                <th>Seleccionar</th>
+                                                <th>Ruta</th>
+                                                <th>Fecha</th>
+                                                <th>Salida</th>
+                                                <th>Llegada</th>
+                                                <th>Precio</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><input class="p-5" type="checkbox" (click)="agregarVuelo(x._id)"></td>
+                                                <td>{{ x.ruta.origen }} <i class="fas fa-arrow-right"></i> {{
+                                                    x.ruta.destino }}</td>
+                                                <td>{{ x.dia }}</td>
+                                                <td>{{ x.hora }}</td>
+                                                <td>{{ x.horaLlegada }}</td>
+                                                <td>${{ x.precio }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </div>
+                </div>
+                
+            </ng-template>
+        </div>
+
+    </div>
+</div>

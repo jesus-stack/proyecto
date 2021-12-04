@@ -29,17 +29,11 @@ module.exports.delete = async (req, res, next) => {
 
 module.exports.update = async (req, res, next) => {
 
-    const {  identificador, duracion, origen, destino, porc_descuento } = req.body;
+    const { identificador, duracion, origen, destino, porc_descuento } = req.body;
     const ruta = await rutaModel.findOneAndUpdate(
-        { 
-            _id: req.params.id 
-        },
-        { 
-            identificador, duracion, origen, destino, porc_descuento
-        },
-        { 
-            new: true
-        }
+        { _id: req.params.id },
+        { identificador, duracion, origen, destino, porc_descuento },
+        { new: true }
     );
     res.json(ruta);
 };

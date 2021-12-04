@@ -9,7 +9,7 @@
         <h2 data-aos="" data-aos-delay="400">Somos una compañia con más de 20 años de experiencia.</h2>
         <div data-aos="" data-aos-delay="600">
           <div class="text-center text-lg-start">
-            <a href="#about"
+            <a href="/register"
               class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
               <span>Registrarse</span>
               <i class="bi bi-arrow-right"></i>
@@ -37,30 +37,61 @@
       <div style="border-radius: 0.5rem;">
         <div class="row">
           <div class="col-lg-6 pl-5 mt-3 mb-3">
-            <form>
+            <form [formGroup]="searchForm" (ngSubmit)="submitSearchForm()" #f="ngForm">
               <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Origen</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <label for="inputOrigen" class="form-label">Origen</label>
+                <input type="text" class="form-control" id="inputOrigen" formControlName="origen" placeholder="Ingrese desde donde viaja">
+                <div class="pt-1" *ngIf="!searchForm.value.origen && f.submitted">
+                  <p class="text-danger">
+                    El origen es requerido
+                  </p>
+                </div>
               </div>
               <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Destino</label>
-                <input type="text" class="form-control" id="exampleInputPassword1">
+                <label for="inputDestino" class="form-label">Destino</label>
+                <input type="text" class="form-control" id="inputDestino" formControlName="destino" placeholder="Ingrese su destino">
+                <div class="pt-1" *ngIf="!searchForm.value.destino && f.submitted">
+                  <p class="text-danger">
+                    El destino es requerido
+                  </p>
+                </div>
               </div>
-              <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Fecha Ida</label>
-                <input type="date" class="form-control" id="exampleInputPassword1">
-              </div>
-              <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Fecha Vuelta</label>
-                <input type="date" class="form-control" id="exampleInputPassword1">
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="mb-3">
+                    <label for="inputFechaIda" class="form-label">Fecha Ida</label>
+                    <input type="date" class="form-control" id="inputFechaIda" formControlName="fechaIda">
+                  </div>
+                </div>
+                <div class="pt-1" *ngIf="!searchForm.value.fechaIda && f.submitted">
+                  <p class="text-danger">
+                    La fecha de ida es requerida
+                  </p>
+                </div>
+                <div class="col-lg-6">
+                  <div class="mb-3">
+                    <label for="inputFechaVuelta" class="form-label">Fecha Vuelta</label>
+                    <input type="date" class="form-control" id="inputFechaVuelta" formControlName="fechaVuelta">
+                  </div>
+                </div>
+                <div class="pt-1" *ngIf="this.searchForm.value.radioGroup === 'idaVuelta' && this.searchForm.value.fechaVuelta === '' && f.submitted">
+                  <p class="text-danger">
+                    La fecha de vuelta es requerida
+                  </p>
+                </div>
               </div>
               <div class="form-check mb-3">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">Ida y vuelta</label>
+                <input class="form-check-input" id="soloIda" onclick="radioChecked(true)" type="radio" value="ida" formControlName="radioGroup">
+                <label class="form-check-label">Solo ida</label>
               </div>
               <div class="form-check mb-3">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                <label class="form-check-label" for="flexRadioDefault2">Solo ida</label>
+                <input class="form-check-input" onclick="radioChecked(false)" id="radioIdaVuelta" type="radio" value="idaVuelta" formControlName="radioGroup">
+                <label class="form-check-label">Ida y vuelta</label>
+              </div>
+              <div class="pt-1" *ngIf="!searchForm.value.radioGroup && f.submitted">
+                <p class="text-danger">
+                  Estas opciones son necesarias
+                </p>
               </div>
               <button type="submit" class="btn btn-primary">Buscar</button>
             </form>
@@ -79,7 +110,7 @@
       </div>
     </div>
   </section>
-  
+
   <!-- ======= About ======= -->
   <section id="about" class="about">
 
@@ -119,9 +150,9 @@
         <p>Contáctenos</p>
       </header>
 
-      <div class="row gy-4">
+      <div class="row gy-4 text-center">
 
-        <div class="col-lg-6">
+        <div class="col-lg-12">
 
           <div class="row gy-4">
             <div class="col-md-6">
@@ -152,39 +183,10 @@
                 <i class="bi bi-clock"></i>
                 <h3>Horario</h3>
                 <p>Lunes - Viernes<br>7:00AM - 09:00PM</p>
+                <br>
               </div>
             </div>
           </div>
-
-        </div>
-
-        <div class="col-lg-6">
-          <form action="forms/contact.php" method="post" class="php-email-form">
-            <div class="row gy-4">
-
-              <div class="col-md-6">
-                <input type="text" name="name" class="form-control" placeholder="Tu Nombre" required>
-              </div>
-
-              <div class="col-md-6 ">
-                <input type="email" class="form-control" name="email" placeholder="Tu Correo" required>
-              </div>
-
-              <div class="col-md-12">
-                <input type="text" class="form-control" name="subject" placeholder="Asunto" required>
-              </div>
-
-              <div class="col-md-12">
-                <textarea class="form-control" name="message" rows="6" placeholder="Mensaje" required></textarea>
-              </div>
-
-              <div class="col-md-12 text-center">
-                <button type="submit">Enviar Mensaje</button>
-              </div>
-
-            </div>
-          </form>
-
         </div>
 
       </div>
@@ -198,4 +200,4 @@
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
     class="bi bi-arrow-up-short"></i></a>
 
-    <app-footer></app-footer>
+<app-footer></app-footer>

@@ -1,0 +1,26 @@
+<div id="n1" >
+  <div class="container">
+    <ngx-paypal *ngIf="showPaypalButtons"
+  [config]="payPalConfig">
+</ngx-paypal>
+  </div>
+  .
+ <!-- <ngx-paypal *ngIf="showPaypalButtons"
+  [config]="payPalConfig">
+</ngx-paypal>-->
+<!--<main class="container  ">
+<form class="col-3"  novalidate (ngSubmit)="createToken()" [formGroup]="stripeTest">
+  <div class="mb-3 col-12">
+    <label for="exampleFormControlInput1" class="form-label">Nombre</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Jesus Castilla">
+  </div>
+  <ngx-stripe-card
+    [options]="cardOptions"
+    [elementsOptions]="elementsOptions"
+  ></ngx-stripe-card>
+  <button type="submit" class="btn btn-primary mt-5">
+    Pagar
+  </button>
+</form>
+</main>-->
+</div>
