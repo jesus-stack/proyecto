@@ -7,9 +7,8 @@
                 <div class="align-self-center error">
                     <div>
                         <h1>Oh no!</h1>
-                        <h2>A ocurrido un error.</h2>
-                        <h4>La página que estas buscando necesita mas información para poder ser vista.</h4>
-                        <a class="btn btn-primary" href="/">Inicio</a>
+                        <h2>No hemos encontrado ningun vuelo disponible para tu solicitud.</h2>
+                        <a class="btn btn-primary" (click)="goBack()">Volver</a>
                     </div>
                 </div>
             </div>
@@ -37,7 +36,7 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td><input class="p-5" type="checkbox" (click)="agregarVuelo(x._id)">
+                                                <td><input class="p-5" type="checkbox" (change)="agregarVuelo(x._id)">
                                                 </td>
                                                 <td>{{ x.ruta.origen }} - {{ x.ruta.destino }}</td>
                                                 <td>{{ x.dia }}</td>

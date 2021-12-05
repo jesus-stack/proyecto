@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BusquedaService } from 'src/app/services/busqueda.service';
 import { VueloService } from 'src/app/services/vuelo.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-results',
@@ -18,7 +19,8 @@ export class ResultsComponent implements OnInit {
   constructor(
     private busquedaService: BusquedaService,
     private vuelosService: VueloService,
-    private router: Router
+    private router: Router,
+    private location: Location
   ) { }
 
   ngOnInit(): void {
@@ -69,5 +71,9 @@ export class ResultsComponent implements OnInit {
       return JSON.parse(vuelos);
     }
     return [];
+  }
+
+  goBack(){
+    this.location.back();
   }
 }

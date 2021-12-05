@@ -38,10 +38,18 @@ export class LoginComponent implements OnInit {
         this.toastr.success('Autenticacion Exitosa', 'Iniciar Sesion Usuario');
         this.tokenStorage.saveToken(data.token);
         this.tokenStorage.saveUser(data);
-        if (data.user.role == 'admin') {
-          this.router.navigate(['dashboard']);
-        } else {
-          this.router.navigate(['']);
+        
+        if(window.sessionStorage.getItem('redirigir_pago')){
+          console.log('ggggg');
+          
+          window.sessionStorage.removeItem('redirigir_pago')
+          this.router.navigate(['payment']);
+        }else{
+          if (data.user.role == 'admin') {
+            this.router.navigate(['dashboard']);
+          } else {
+            this.router.navigate(['']);
+          }
         }
       } else {
         this.toastr.error(data.msg, 'Iniciar Sesion Usuario');
