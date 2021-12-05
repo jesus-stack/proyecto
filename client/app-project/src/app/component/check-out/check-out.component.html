@@ -1,0 +1,73 @@
+<app-header></app-header>
+
+<div class="container">
+    <div *ngIf="vuelosAgregados.length>0; else notVuelos">
+        <div class="row mt-5">
+            <div class="col-lg-8">
+                <h5 class="title mb-4">Detalles de la Compra</h5>
+                <div *ngFor="let x of vuelosAgregados">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <table class="table table-borderless">
+                                <thead>
+                                    <tr>
+                                        <th>Ruta</th>
+                                        <th>Fecha</th>
+                                        <th>Hora</th>
+                                        <th>Precio</th>
+                                        <th>Asientos</th>
+                                        <th>Eliminar</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>{{ x.ruta.origen }} - {{ x.ruta.destino }}</td>
+                                        <td>{{ x.dia }}</td>
+                                        <td>{{ x.hora }}</td>
+                                        <td>${{ x.precio }}</td>
+                                        <td><input type="number" class="input" min="1" max="10"
+                                                (click)="agregarAsiento(x._id)"></td>
+                                        <td>
+                                            <a class="btn btn-danger btn-sm d-inline-block"
+                                                (click)="deleteVueloAgregado(x._id)">
+                                                <i class="far fa-trash-alt"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mt-5">
+                <div class="card">
+                    <h5 class="card-header">Detalles del Pago</h5>
+                    <div class="card-body">
+                        <p>Subtotal: $2550</p>
+                        <p>Descuento: $550</p>
+                    </div>
+                    <div class="card-footer">
+                        <p style="font-size: 1.2rem;"><strong>Total: $2000</strong></p>
+                        <p>Precio en colones: ₡1.260.000</p>
+                    </div>
+                </div>
+                <div class="d-grid mt-4 mb-4 col-lg-6 col-md-4 col-5 mx-auto">
+                    <a class="btn btn-primary" href="/pago">Confirmar Compra</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ng-template #notVuelos>
+        <div class="row">
+            <div class="align-self-center error">
+                <div>
+                    <h1>Oh no!</h1>
+                    <h2>A ocurrido un error.</h2>
+                    <h4>La página que estas buscando necesita mas información para poder ser vista.</h4>
+                    <a class="btn btn-primary" href="/">Inicio</a>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</div>

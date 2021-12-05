@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { BusquedaService } from 'src/app/services/busqueda.service';
+import { RutaService } from 'src/app/services/ruta.service';
 import { VueloService } from 'src/app/services/vuelo.service';
 
 @Component({
@@ -22,9 +23,11 @@ export class HomeComponent implements OnInit {
 
   vuelosFiltrados: any;
   vuelosFiltradosVuelta: any;
+  vuelosDescuento: any = [];
 
   constructor(
     private vueloService: VueloService,
+    private rutaService: RutaService,
     private busquedaService: BusquedaService,
     private router: Router
   ) { }
@@ -32,6 +35,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.busquedaService.setBusqueda(null);
     this.busquedaService.cargarScript();
+    this.cargarVuelosDescuento();
   }
 
   submitSearchForm() {
@@ -91,5 +95,16 @@ export class HomeComponent implements OnInit {
         );
       }
     }
+  }
+  
+  cargarVuelosDescuento(){
+
+    this.rutaService.getRutas().subscribe(response => {
+      let vuelos = response;
+      this.vuelosDescuento = vuelos.filter((x:any)=>{
+        return x.porc_descuento > 0
+      });
+      console.log(this.vuelosDescuento);
+    });
   }
 }

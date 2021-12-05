@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { BusquedaService } from 'src/app/services/busqueda.service';
 import { VueloService } from 'src/app/services/vuelo.service';
 
@@ -9,13 +10,15 @@ import { VueloService } from 'src/app/services/vuelo.service';
 })
 export class ResultsComponent implements OnInit {
 
+  public page: number = 0;
   vuelos: any[] = [];
   vacio: boolean = true;
   vuelosAgregados: any[] = [];
 
   constructor(
     private busquedaService: BusquedaService,
-    private vuelosService: VueloService
+    private vuelosService: VueloService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {

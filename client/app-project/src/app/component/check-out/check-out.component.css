@@ -1,5 +1,6 @@
-.results{
-    min-height: 17rem;
+.input{
+    border: 0;
+    width: 4rem;
 }
 
 .msgSinVuelos{
@@ -7,20 +8,6 @@
     margin: 15% auto;
     font-size: 1.3rem;
 }
-
-.titulo{
-    font-size: 1.2rem;
-    margin-left: 0.2rem;
-}
-
-input[type="checkbox"] {
-    margin-left: 2rem !important;
-}
-
-.blue-color{
-    color: rgb(1, 42, 112);
-}
-
 
 .error{
     height: 80vh;
@@ -30,11 +17,11 @@ input[type="checkbox"] {
 }
 
 .error div{
+    margin: 12% auto;
     text-align: center;
 }
 
 .error h1{
-    padding-top: 12%;
     font-size: 2rem;
 }
 
