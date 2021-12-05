@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RutaService } from '../../../../services/ruta.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-ruta-list',
@@ -13,7 +14,8 @@ export class RutaListComponent implements OnInit {
 
   constructor(
     private rutaService: RutaService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -36,7 +38,7 @@ export class RutaListComponent implements OnInit {
   deleteRuta(id: String) {
     this.rutaService.deleteRuta(id).subscribe(
       response => {
-        alert("Eliminado Correctamente");
+        this.toastr.success('Ruta eliminada correctamente');
         this.getRutas();
       },
       error => console.log(error)
