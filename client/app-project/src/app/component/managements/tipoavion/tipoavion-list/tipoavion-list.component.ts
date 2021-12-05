@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TipoAvionService } from '../../../../services/tipo-avion.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-tipoavion-list',
@@ -13,7 +14,8 @@ export class TipoavionListComponent implements OnInit {
 
   constructor(
     private tipoavionService: TipoAvionService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -36,7 +38,7 @@ export class TipoavionListComponent implements OnInit {
   deleteTipoAvion(id: String) {
     this.tipoavionService.deleteTipoAvion(id).subscribe(
       response => {
-        alert("Eliminado Correctamente");
+        this.toastr.success('Tipo de avion eliminado correctamente');
         this.getTipoAvion();
       },
       error => console.log(error)

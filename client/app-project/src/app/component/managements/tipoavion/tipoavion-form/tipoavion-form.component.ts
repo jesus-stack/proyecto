@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TipoAvionService } from '../../../../services/tipo-avion.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-tipoavion-form',
@@ -27,6 +28,7 @@ export class TipoavionFormComponent implements OnInit {
     private tipoavionservice: TipoAvionService,
     private router: Router,
     private activeRoute: ActivatedRoute,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -50,18 +52,19 @@ export class TipoavionFormComponent implements OnInit {
             cant_Filas: data.cant_Filas
           });
         },
-        error => console.log(error, "fff"));
+        error => console.log(error));
       }
     }
     );
   }
 
   submitForm() {
+
     if (this.postForm.valid) {
       if (this.editMode) {
         this.tipoavionservice.editTipoAvion(this.tiposAviones._id, this.postForm.value).subscribe(
           response => {
-            alert("Tipo avion editado correctamente");
+            this.toastr.success('Tipo avion editado correctamente');
             this.router.navigate(['/dashboard/tipoavion/list']);
           },
           error => console.log(error)
@@ -70,14 +73,14 @@ export class TipoavionFormComponent implements OnInit {
         console.log(this.postForm.value);
         this.tipoavionservice.createTipoAvion(this.postForm.value).subscribe(
           response => {
-            alert("Tipo avion guardado correctamente");
+            this.toastr.success('Tipo avion guardado correctamente');
             this.router.navigate(['/dashboard/tipoavion/list']);
           },
           error => console.log(error)
         )
       }
     } else {
-      alert("Ha ocurrido un error");
+      this.toastr.error('No se pudo procesar la solicitud');
     }
   }
 }

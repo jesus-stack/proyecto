@@ -6,6 +6,7 @@ import { VueloService } from '../../../../services/vuelo.service';
 import { IVuelo } from '../../../../models/vuelo';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-vuelo-form',
@@ -33,6 +34,7 @@ export class VueloFormComponent implements OnInit {
     private vueloService: VueloService,
     private router: Router,
     private activeRoute: ActivatedRoute,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -84,7 +86,7 @@ export class VueloFormComponent implements OnInit {
       if(this.editMode){
         this.vueloService.editVuelo(this.vuelo._id,this.postForm.value).subscribe(
           response => {
-            alert("Vuelo editado correctamente");
+            this.toastr.success("Vuelo editado correctamente");
             this.router.navigate(['dashboard/vuelo/list']);
           },
           error => console.log(error)
@@ -92,14 +94,14 @@ export class VueloFormComponent implements OnInit {
       }else{
         this.vueloService.createVuelo(this.postForm.value).subscribe(
           response => {
-            alert("Vuelo guardado correctamente");
+            this.toastr.success("Vuelo guardado correctamente");
             this.router.navigate(['dashboard/vuelo/list']);
           },
           error => console.log(error)
         )
       }
     } else {
-      alert("Ha ocurrido un error");
+      this.toastr.error('No se pudo procesar la solicitud');
     }
   }
 }

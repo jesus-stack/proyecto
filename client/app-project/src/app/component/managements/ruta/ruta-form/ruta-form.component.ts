@@ -4,6 +4,7 @@ import { RutaService } from '../../../../services/ruta.service';
 import { IRuta } from '../../../../models/ruta';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-ruta-form',
@@ -27,6 +28,7 @@ export class RutaFormComponent implements OnInit {
     private rutaService: RutaService,
     private router: Router,
     private activeRoute: ActivatedRoute,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -59,7 +61,7 @@ export class RutaFormComponent implements OnInit {
       if(this.editMode){
         this.rutaService.editRuta(this.ruta._id,this.postForm.value).subscribe(
           response => {
-            alert("Ruta editada correctamente");
+            this.toastr.success('Ruta editada correctamente');
             this.router.navigate(['dashboard/ruta/list']);
           },
           error => console.log(error)
@@ -67,14 +69,14 @@ export class RutaFormComponent implements OnInit {
       }else{
         this.rutaService.createRuta(this.postForm.value).subscribe(
           response => {
-            alert("Ruta guardado correctamente");
+            this.toastr.success('Ruta guardada correctamente');
             this.router.navigate(['dashboard/ruta/list']);
           },
           error => console.log(error)
         )
       }
     } else {
-      alert("Ha ocurrido un error");
+      this.toastr.error('No se pudo procesar la solicitud');
     }
   }
 }

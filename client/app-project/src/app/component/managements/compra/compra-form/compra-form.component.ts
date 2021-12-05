@@ -13,37 +13,43 @@ import { UserService } from 'src/app/services/user.service';
 export class CompraFormComponent implements OnInit {
 
   compraForm = new FormGroup({
-    Usuario:new FormControl('', Validators.required),
-    Cantidad : new FormControl(0, Validators.required),
+    Usuario: new FormControl('', Validators.required),
+    Cantidad: new FormControl(0, Validators.required),
     Subtotal: new FormControl(0, Validators.required),
-    Descuento : new FormControl(0, Validators.required),
-    MontoTotal : new FormControl(0, Validators.required),
+    Descuento: new FormControl(0, Validators.required),
+    MontoTotal: new FormControl(0, Validators.required),
 
   });
 
-
   users = <any>[];
- compra  : any={};
+  compra: any = {};
   editMode = false;
-  constructor(private compraservice : CompraService,private  router : Router,
-    private userService: UserService,private activeRoute: ActivatedRoute,private toastr : ToastrService) { }
+
+  constructor(
+    private compraservice: CompraService,
+    private router: Router,
+    private userService: UserService,
+    private activeRoute: ActivatedRoute,
+    private toastr: ToastrService
+  ) { }
 
   ngOnInit(): void {
     this.getuser();
     this.validarId();
   }
 
-  getuser(){
+  getuser() {
     let result = [];
-     this.userService.get().subscribe(
-       response => {
-         this.users = response;
-         result = this.users.filter((x:any)=>x.habilitado === true);
-         this.users = result;
-       },
-       error => console.log(error))
-   }
-   validarId() {
+    this.userService.get().subscribe(
+      response => {
+        this.users = response;
+        result = this.users.filter((x: any) => x.habilitado === true);
+        this.users = result;
+      },
+      error => console.log(error))
+  }
+
+  validarId() {
 
     this.activeRoute.params.subscribe(param => {
       if (param.id) {
@@ -52,10 +58,10 @@ export class CompraFormComponent implements OnInit {
           this.compra = data;
           this.compraForm.setValue({
             Usuario: data.Usuario,
-            Cantidad : data.Cantidad,
+            Cantidad: data.Cantidad,
             Subtotal: data.Cantidad,
-            Descuento : data.Descuento,
-            MontoTotal : data.MontoTotal ,
+            Descuento: data.Descuento,
+            MontoTotal: data.MontoTotal,
           });
         });
       }
@@ -64,27 +70,28 @@ export class CompraFormComponent implements OnInit {
   }
 
   submitForm() {
+
     if (this.compraForm.valid) {
-      if(this.editMode){
-        this.compraservice.update(this.compra._id,this.compraForm.value).subscribe(
+      if (this.editMode) {
+        this.compraservice.update(this.compra._id, this.compraForm.value).subscribe(
           response => {
             if (response.success) {
-              this.toastr.success(response.msg, 'Registro Usuario');
+              this.toastr.success(response.msg);
             } else {
-              this.toastr.error(response.msg, 'Registro Usuario');
+              this.toastr.error(response.msg);
             }
 
             this.router.navigate(['dashboard/compra/list']);
           },
           error => console.log(error)
         )
-      }else{
+      } else {
         this.compraservice.create(this.compraForm.value).subscribe(
           response => {
             if (response.success) {
-              this.toastr.success(response.msg, 'Registro Usuario');
+              this.toastr.success(response.msg);
             } else {
-              this.toastr.error(response.msg, 'Registro Usuario');
+              this.toastr.error(response.msg);
             }
             this.router.navigate(['dashboard/compra/list']);
           },
@@ -92,7 +99,7 @@ export class CompraFormComponent implements OnInit {
         )
       }
     } else {
-      alert("Ha ocurrido un error");
+      this.toastr.error('No se pudo procesar la solicitud');
     }
   }
 
