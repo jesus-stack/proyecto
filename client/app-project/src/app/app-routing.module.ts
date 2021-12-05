@@ -20,6 +20,7 @@ import { CompraListComponent } from './component/managements/compra/compra-list/
 import { CompraFormComponent } from './component/managements/compra/compra-form/compra-form.component';
 import { LogginGuard } from './guards/loggin.guard';
 import { PagoComponent } from './component/pago/pago.component';
+import { CheckOutComponent } from './component/check-out/check-out.component';
 
 
 
@@ -59,6 +60,7 @@ const routes: Routes = [
 
   { path: 'register', canActivate: [LogginGuard], component: RegisterComponent },
   { path: 'login', canActivate: [LogginGuard], component: LoginComponent },
+  { path: 'checkout', component: CheckOutComponent },
 
   {
     path: '**',

@@ -20,6 +20,7 @@
     "@angular/router": "~12.2.0",
     "@stripe/stripe-js": "^1.21.1",
     "bootstrap": "5.1.2",
+    "ngx-pagination": "^5.1.1",
     "ngx-paypal": "^8.0.0",
     "ngx-stripe": "^13.0.0",
     "ngx-toastr": "^14.1.4",

@@ -5,8 +5,9 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-6 flex-column justify-content-center">
-        <h1 data-aos="">Ofrecemos la compra y reserva de tiquetes aereos.</h1>
-        <h2 data-aos="" data-aos-delay="400">Somos una compañia con más de 20 años de experiencia.</h2>
+        <h1 data-aos="">Skyline es una plataforma que ofrece la compra y reserva de tiquetes aéreos.</h1>
+        <h2 data-aos="" data-aos-delay="400">Somos una compañía con más de 20 años de experiencia en este ámbito
+           y queremos que descubras lo fácil que es poder viajar con nosotros!</h2>
         <div data-aos="" data-aos-delay="600">
           <div class="text-center text-lg-start">
             <a href="/register"
@@ -40,7 +41,8 @@
             <form [formGroup]="searchForm" (ngSubmit)="submitSearchForm()" #f="ngForm">
               <div class="mb-3">
                 <label for="inputOrigen" class="form-label">Origen</label>
-                <input type="text" class="form-control" id="inputOrigen" formControlName="origen" placeholder="Ingrese desde donde viaja">
+                <input type="text" class="form-control" id="inputOrigen" formControlName="origen"
+                  placeholder="Ingrese desde donde viaja">
                 <div class="pt-1" *ngIf="!searchForm.value.origen && f.submitted">
                   <p class="text-danger">
                     El origen es requerido
@@ -49,7 +51,8 @@
               </div>
               <div class="mb-3">
                 <label for="inputDestino" class="form-label">Destino</label>
-                <input type="text" class="form-control" id="inputDestino" formControlName="destino" placeholder="Ingrese su destino">
+                <input type="text" class="form-control" id="inputDestino" formControlName="destino"
+                  placeholder="Ingrese su destino">
                 <div class="pt-1" *ngIf="!searchForm.value.destino && f.submitted">
                   <p class="text-danger">
                     El destino es requerido
@@ -74,18 +77,21 @@
                     <input type="date" class="form-control" id="inputFechaVuelta" formControlName="fechaVuelta">
                   </div>
                 </div>
-                <div class="pt-1" *ngIf="this.searchForm.value.radioGroup === 'idaVuelta' && this.searchForm.value.fechaVuelta === '' && f.submitted">
+                <div class="pt-1"
+                  *ngIf="this.searchForm.value.radioGroup === 'idaVuelta' && this.searchForm.value.fechaVuelta === '' && f.submitted">
                   <p class="text-danger">
                     La fecha de vuelta es requerida
                   </p>
                 </div>
               </div>
               <div class="form-check mb-3">
-                <input class="form-check-input" id="soloIda" onclick="radioChecked(true)" type="radio" value="ida" formControlName="radioGroup">
+                <input class="form-check-input" id="soloIda" onclick="radioChecked(true)" type="radio" value="ida"
+                  formControlName="radioGroup">
                 <label class="form-check-label">Solo ida</label>
               </div>
               <div class="form-check mb-3">
-                <input class="form-check-input" onclick="radioChecked(false)" id="radioIdaVuelta" type="radio" value="idaVuelta" formControlName="radioGroup">
+                <input class="form-check-input" onclick="radioChecked(false)" id="radioIdaVuelta" type="radio"
+                  value="idaVuelta" formControlName="radioGroup">
                 <label class="form-check-label">Ida y vuelta</label>
               </div>
               <div class="pt-1" *ngIf="!searchForm.value.radioGroup && f.submitted">
@@ -96,15 +102,30 @@
               <button type="submit" class="btn btn-primary">Buscar</button>
             </form>
           </div>
-          <div class="col-lg-4 mt-3 mb-3 offset-md-1">
-            <h4 class="mt-4 mb-3" style="color: #012970;">Destinos mas vendidos</h4>
-            <ul>
-              <li class="mb-2"><a>Costa Rica - USA</a></li>
-              <li class="mb-2"><a>España - USA</a></li>
-              <li class="mb-2"><a>Costa Rica - Mexico</a></li>
-              <li class="mb-2"><a>Chile - Costa Rica</a></li>
-              <li class="mb-2"><a>Italia - Suecia</a></li>
-            </ul>
+          <div class="col-lg-6 mt-5">
+            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                <div *ngFor="let x of vuelosDescuento; let i = index" class="carousel-item" [class.active]="i === 0">
+                  <img src="../../../assets/img/bg-carousel2.jpg" class="d-block w-100" alt="...">
+                  <div class="carousel-caption d-none d-md-block">
+                    <h5 style="background-color: rgb(1, 42, 112); font-size: 1.1rem;">
+                        Descuento de hasta un {{ x.porc_descuento }}% en vuelos con destino a {{x.destino}}!
+                    </h5>
+                    <p class="bg-white text-dark">Aprovecha esta oferta por tiempo limitado!</p>
+                  </div>
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>

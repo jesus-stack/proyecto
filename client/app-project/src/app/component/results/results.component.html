@@ -1,22 +1,24 @@
 <app-header></app-header>
 
-<div class="results mt-5">
-    <div class="container">
+<div class="results">
+    <div class="container ">
         <div class="row">
             <div *ngIf="vacio; else notVacio">
-                <div class="col-lg-12">
-                    <p class="msgSinVuelos text-center">
-                        Lo Sientimos. Por ahora no se
-                        encontraron vuelos disponibles para su solicitud.
-                    </p>
+                <div class="align-self-center error">
+                    <div>
+                        <h1>Oh no!</h1>
+                        <h2>No hemos encontrado ningun vuelo disponible para tu solicitud.</h2>
+                        <a class="btn btn-primary" (click)="goBack()">Volver</a>
+                    </div>
                 </div>
             </div>
             <ng-template #notVacio>
-                <div class="col-lg-12">
-                    <h2 class="titulo mb-4">Vuelos de Ida <i class="fas fa-arrow-right"></i></h2>
-                    <div *ngFor="let x of vuelos">
+                <div class="col-lg-12 mt-5">
+                    <h2 class="titulo mb-4 text-primary">Vuelos de Ida <i class="fas fa-arrow-right"></i></h2>
+                    <div *ngFor="let x of vuelos | paginate: { itemsPerPage: 10, currentPage: page }">
                         <div *ngIf="x.vuelta; else notVuelta">
-                            <h2 class="titulo mb-4 mt-4">Vuelos de Vuelta <i class="fas fa-arrow-left"></i></h2>
+                            <h2 class="titulo mb-4 mt-4 text-primary">Vuelos de Vuelta <i class="fas fa-arrow-left"></i>
+                            </h2>
                         </div>
                         <ng-template #notVuelta>
                             <div class="card mb-3">
@@ -34,9 +36,9 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td><input class="p-5" type="checkbox" (click)="agregarVuelo(x._id)"></td>
-                                                <td>{{ x.ruta.origen }} <i class="fas fa-arrow-right"></i> {{
-                                                    x.ruta.destino }}</td>
+                                                <td><input class="p-5" type="checkbox" (change)="agregarVuelo(x._id)">
+                                                </td>
+                                                <td>{{ x.ruta.origen }} - {{ x.ruta.destino }}</td>
                                                 <td>{{ x.dia }}</td>
                                                 <td>{{ x.hora }}</td>
                                                 <td>{{ x.horaLlegada }}</td>
@@ -48,8 +50,16 @@
                             </div>
                         </ng-template>
                     </div>
+                    <div class="text-center">
+                        <pagination-controls class="m-4" (pageChange)="page = $event" previousLabel="Anterior"
+                            nextLabel="Siguiente"></pagination-controls>
+                    </div>
                 </div>
-                
+                <div *ngIf="vuelosAgregados.length>0">
+                    <div class="d-grid col-lg-3 mb-4 col-4 mx-auto">
+                        <a class="btn btn-primary" href="/checkout">Check-Out</a>
+                    </div>
+                </div>
             </ng-template>
         </div>
 

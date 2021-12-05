@@ -3,7 +3,7 @@ const router = express.Router();
 const rutaController = require("../controller/ruta");
 const auth = require('../middleware/user');
 
-router.get("/", auth, rutaController.getAll);
+router.get("/", rutaController.getAll);
 
 router.get("/:id", auth, rutaController.getById);
 

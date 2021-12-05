@@ -37,6 +37,8 @@ import { AuthGuard } from './guards/auth.guard';
 import { ResultsComponent } from './component/results/results.component';
 import { BusquedaService } from './services/busqueda.service';
 import { LogginGuard } from './guards/loggin.guard';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { CheckOutComponent } from './component/check-out/check-out.component';
 
 
 
@@ -65,6 +67,7 @@ import { LogginGuard } from './guards/loggin.guard';
     CompraListComponent,
     CompraFormComponent,
     PagoComponent,
+    CheckOutComponent,
 
 
 
@@ -79,7 +82,8 @@ import { LogginGuard } from './guards/loggin.guard';
     FormsModule,
     NgxPayPalModule,
     NgxStripeModule.forRoot('pk_test_51K1WGSFrzYsUbyY0AABxZZ6OXJHJbZrc2BcAjVzB9p1BVJVIakY9no9JmhYM9DB4vomZad5ZGOZ6AKMUCy9yU0Kd00smuVENUe'),
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ],
   providers: [UserInterceptorProviders, AuthGuard, LogginGuard, BusquedaService],
   bootstrap: [AppComponent]
