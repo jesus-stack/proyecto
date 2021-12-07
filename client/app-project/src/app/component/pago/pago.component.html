@@ -1,5 +1,59 @@
-<div id="n1" >
-  <div class="container">
-    
-   </div>
+
+
+<div class="container">
+    <div>
+        <div class="row mt-5">
+            <div class="col-lg-8">
+                <h5 class="title mb-4">Detalles de la Compra</h5>
+                <div *ngFor="let x of vuelosAgregados">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <table class="table table-borderless">
+                                <thead>
+                                    <tr>
+                                        <th>Ruta</th>
+                                        <th>Fecha</th>
+                                        <th>Hora</th>
+                                        <th>Precio</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>{{ x.ruta.origen }} - {{ x.ruta.destino }}</td>
+                                        <td>{{ x.dia }}</td>
+                                        <td>{{ x.hora }}</td>
+                                        <td>${{ x.precio }}</td>
+
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mt-5">
+                <div class="card">
+                    <h5 class="card-header">Detalles del Pago</h5>
+                    <div class="card-body">
+                        <p>Subtotal: ${{subtotal}}</p>
+                        <p>Descuento: ${{descuento | number:'1.2'}}</p>
+                    </div>
+                    <div class="card-footer">
+                        <p style="font-size: 1.2rem;"><strong>Total: ${{total | number:'1.2'}}</strong></p>
+                        <p>Precio en colones: ₡{{colon| number:'1.2'}}</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="align-self-center error">
+      <div>
+
+          <h4>Puedes regresar al inicio del sitio dando click aqui abajo.</h4>
+          <a class="btn btn-primary" href="">Volver</a>
+      </div>
+  </div>
 </div>
+

@@ -26,6 +26,7 @@ export class CheckOutComponent implements OnInit {
 
   ngOnInit(): void {
     this.vuelosAgregados = this.getVuelosAgregados();
+
     this.preciosvuelo = this.getVuelosAgregados();
   }
 
@@ -41,11 +42,11 @@ export class CheckOutComponent implements OnInit {
     for (let index = 0; index < this.vuelosAgregados.length; index++) {
 
       if (this.vuelosAgregados[index]._id === id) {
-        this.vuelosAgregados[index].asiento = num;
-        let asiento: number = parseInt((document.getElementById(id) as HTMLInputElement).value);
+        this.vuelosAgregados[index].asiento = parseInt((document.getElementById(id) as HTMLInputElement).value);;
+       
 
 
-        this.vuelosAgregados[index].precio  =  this.preciosvuelo[index].precio * asiento;
+        this.vuelosAgregados[index].precio  =  this.preciosvuelo[index].precio * this.vuelosAgregados[index].asiento;
         this.subtotal +=this.preciosvuelo[index].precio ;
         this.descuento +=this.preciosvuelo[index].precio *(this.vuelosAgregados[index].ruta.porc_descuento/100);
         this.total = this.subtotal-this.descuento;
@@ -71,6 +72,14 @@ export class CheckOutComponent implements OnInit {
 
     if(true){
       if(this.token.getToken() !== null){
+       let  totales = {
+          subtotal: this.subtotal,
+          descuento: this.descuento,
+          total:this.total,
+          colon: this.colon
+        }
+        window.sessionStorage.setItem('precios', JSON.stringify(this.vuelosAgregados));
+        window.sessionStorage.setItem('totales', JSON.stringify(totales));
         this.router.navigate(['payment']);
       }else{
         window.sessionStorage.setItem('redirigir_pago','true');
