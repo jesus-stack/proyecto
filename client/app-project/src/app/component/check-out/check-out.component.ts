@@ -11,6 +11,12 @@ import { TokenStorageService } from 'src/app/services/token-storage.service';
 export class CheckOutComponent implements OnInit {
 
   vuelosAgregados: any[] = [];
+  preciosvuelo :any[] = [];
+  subtotal: any =0;
+  descuento: any =0;
+  total:any =0;
+  colon :any = 0;
+
 
   constructor(
     private location: Location,
@@ -20,6 +26,7 @@ export class CheckOutComponent implements OnInit {
 
   ngOnInit(): void {
     this.vuelosAgregados = this.getVuelosAgregados();
+    this.preciosvuelo = this.getVuelosAgregados();
   }
 
   public getVuelosAgregados(): any {
@@ -32,9 +39,20 @@ export class CheckOutComponent implements OnInit {
 
   agregarAsiento(id: any, num: number){
     for (let index = 0; index < this.vuelosAgregados.length; index++) {
+
       if (this.vuelosAgregados[index]._id === id) {
         this.vuelosAgregados[index].asiento = num;
+        let asiento: number = parseInt((document.getElementById(id) as HTMLInputElement).value);
+
+
+        this.vuelosAgregados[index].precio  =  this.preciosvuelo[index].precio * asiento;
+        this.subtotal +=this.preciosvuelo[index].precio ;
+        this.descuento +=this.preciosvuelo[index].precio *(this.vuelosAgregados[index].ruta.porc_descuento/100);
+        this.total = this.subtotal-this.descuento;
+        this.colon = this.total* 633.21500;
+
       }
+
     }
   }
 

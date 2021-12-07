@@ -25,7 +25,7 @@
                                         <td>{{ x.dia }}</td>
                                         <td>{{ x.hora }}</td>
                                         <td>${{ x.precio }}</td>
-                                        <td><input type="number" class="input" min="1" max="10"
+                                        <td><input type="number" class="input" min="1" max="10" id="{{x._id}}"
                                                 (change)="agregarAsiento(x._id, 1)"></td>
                                         <td>
                                             <a class="btn btn-danger btn-sm d-inline-block"
@@ -44,12 +44,12 @@
                 <div class="card">
                     <h5 class="card-header">Detalles del Pago</h5>
                     <div class="card-body">
-                        <p>Subtotal: $2550</p>
-                        <p>Descuento: $550</p>
+                        <p>Subtotal: ${{subtotal}}</p>
+                        <p>Descuento: ${{descuento | number:'1.2'}}</p>
                     </div>
                     <div class="card-footer">
-                        <p style="font-size: 1.2rem;"><strong>Total: $2000</strong></p>
-                        <p>Precio en colones: ₡1.260.000</p>
+                        <p style="font-size: 1.2rem;"><strong>Total: ${{total | number:'1.2'}}</strong></p>
+                        <p>Precio en colones: ₡{{colon| number:'1.2'}}</p>
                     </div>
                 </div>
                 <div class="d-grid mt-4 mb-4 col-lg-6 col-md-4 col-5 mx-auto">
