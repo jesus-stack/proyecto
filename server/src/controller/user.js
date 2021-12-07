@@ -75,7 +75,7 @@ userController.signin = async (req, res, next) => {
                     { expiresIn: "2h" }
                 );
                 // return the information including token as JSON
-                const payload = { role: newuser.role, user: newuser.user };
+                const payload = { role: newuser.role, user: newuser.user, _id : newuser._id };
                 res.json({ success: true, token: token, user: payload });
             } else {
                 //si la contraseña no coincide se procede a indicar el error

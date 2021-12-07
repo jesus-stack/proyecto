@@ -5,7 +5,7 @@ const auth = require('../middleware/user');
 
 router.get('/' , auth, compraController.getcompra)
 
-router.post('/', auth, compraController.createcompra)
+router.post('/', compraController.createcompra)
 
 router.delete('/:id', auth, compraController.deletecompra)
 
