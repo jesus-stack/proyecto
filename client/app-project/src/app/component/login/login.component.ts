@@ -40,10 +40,8 @@ export class LoginComponent implements OnInit {
         this.tokenStorage.saveUser(data);
         
         if(window.sessionStorage.getItem('redirigir_pago')){
-          console.log('ggggg');
-          
           window.sessionStorage.removeItem('redirigir_pago')
-          this.router.navigate(['payment']);
+          this.router.navigate(['checkout']);
         }else{
           if (data.user.role == 'admin') {
             this.router.navigate(['dashboard']);
