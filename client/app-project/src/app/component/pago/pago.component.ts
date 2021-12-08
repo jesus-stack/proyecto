@@ -18,20 +18,17 @@ import { TokenStorageService } from 'src/app/services/token-storage.service';
 })
 export class PagoComponent implements OnInit {
 
-  paymentHandler:any = null;
+  paymentHandler: any = null;
   vuelosAgregados: any[] = [];
-  totales: any={};
-  subtotal: any =0;
-  descuento: any =0;
-  total:any =0;
-  colon :any = 0;
-  pagar:boolean = true;
+  totales: any = {};
+  subtotal: any = 0;
+  descuento: any = 0;
+  total: any = 0;
+  colon: any = 0;
+  pagar: boolean = true;
 
-
-
-
-  constructor( private compraservice: CompraService, private token:TokenStorageService,
-    private location:Location, private checkouservice: CheckoutServiceService,private tostr: ToastrService) {
+  constructor(private compraservice: CompraService, private token: TokenStorageService,
+    private location: Location, private checkouservice: CheckoutServiceService, private tostr: ToastrService) {
     this.vuelosAgregados = this.getVuelosAgregados();
     this.totales = this.getTotales();
     this.subtotal = this.totales.subtotal;
@@ -42,9 +39,9 @@ export class PagoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
-
+    
   }
+
   public getVuelosAgregados(): any {
     const vuelos = window.sessionStorage.getItem('precios');
     if (vuelos) {
@@ -52,6 +49,7 @@ export class PagoComponent implements OnInit {
     }
     return [];
   }
+
   public getTotales(): any {
     const totales = window.sessionStorage.getItem('totales');
     if (totales) {
@@ -60,41 +58,19 @@ export class PagoComponent implements OnInit {
     return [];
   }
 
- makePayment() {
+  makePayment() {
     const paymentHandler = (<any>window).StripeCheckout.configure({
       key: 'pk_test_51K1WGSFrzYsUbyY0AABxZZ6OXJHJbZrc2BcAjVzB9p1BVJVIakY9no9JmhYM9DB4vomZad5ZGOZ6AKMUCy9yU0Kd00smuVENUe',
       locale: 'auto',
-      token:  (stripeToken: any) => {
+      token: (stripeToken: any) => {
         console.log(stripeToken)
-       let checkout = {
+        let checkout = {
           pago: stripeToken,
           cantidad: Math.floor(this.total),
 
         }
         this.checkouservice.create(checkout).subscribe();
-
-      /*  for (let index = 0; index < this.vuelosAgregados.length; index++) {
-
-let compra: any=  {
-  Usuario: this.token.getUser().user._id,
-  Cantidad: this.vuelosAgregados[index].asiento,
-  Subtotal: this.subtotal ,
-  Descuento: this.descuento,
-  MontoTotal: this.total,
-}
-this.compraservice.create(compra).subscribe(
-  response => {
-    if (response.success) {
-      this.toastr.success(response.msg);
-    } else {
-      this.toastr.error(response.msg);
-    }
-    this.router.navigate(['']);
-  },
-  error => console.log(error)
-);
-        }*/
-      this.pagar=false;
+        this.pagar = false;
       }
     });
 
@@ -106,7 +82,7 @@ this.compraservice.create(compra).subscribe(
   }
 
   invokeStripe() {
-    if(!window.document.getElementById('stripe-script')) {
+    if (!window.document.getElementById('stripe-script')) {
       const script = window.document.createElement("script");
       script.id = "stripe-script";
       script.type = "text/javascript";
@@ -125,7 +101,7 @@ this.compraservice.create(compra).subscribe(
       window.document.body.appendChild(script);
     }
   }
-  goBack(){
+  goBack() {
     this.location.back();
   }
 
