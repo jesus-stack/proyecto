@@ -20,6 +20,8 @@ app.use('/horario/',require('./route/horario'));
 
 app.use('/compra/',require('./route/compra'));
 app.use('/ruta/',require('./route/ruta'));
+//checkout
+app.use('/checkout/',require('./route/checkout'));
 
 //Puerto del servidor
 app.listen(8080,()=>{

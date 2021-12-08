@@ -4,7 +4,9 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 //stripe
 import { StripeService, StripeCardComponent } from 'ngx-stripe';
+import { ToastrService } from 'ngx-toastr';
 import { Compra } from 'src/app/models/compra';
+import { CheckoutServiceService } from 'src/app/services/checkout-service.service';
 import { CompraService } from 'src/app/services/compra.service';
 import { TokenStorageService } from 'src/app/services/token-storage.service';
 
@@ -23,13 +25,13 @@ export class PagoComponent implements OnInit {
   descuento: any =0;
   total:any =0;
   colon :any = 0;
-  toastr: any;
-  router: any;
+  pagar:boolean = true;
+
 
 
 
   constructor( private compraservice: CompraService, private token:TokenStorageService,
-    private location:Location) {
+    private location:Location, private checkouservice: CheckoutServiceService,private tostr: ToastrService) {
     this.vuelosAgregados = this.getVuelosAgregados();
     this.totales = this.getTotales();
     this.subtotal = this.totales.subtotal;
@@ -40,14 +42,6 @@ export class PagoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
-
-
-
-
-
-   
-
 
 
   }
@@ -72,8 +66,15 @@ export class PagoComponent implements OnInit {
       locale: 'auto',
       token:  (stripeToken: any) => {
         console.log(stripeToken)
+       let checkout = {
+          pago: stripeToken,
+          cantidad: Math.floor(this.total),
 
-        for (let index = 0; index < this.vuelosAgregados.length; index++) {
+        }
+        this.checkouservice.create(checkout).subscribe();
+
+      /*  for (let index = 0; index < this.vuelosAgregados.length; index++) {
+
 let compra: any=  {
   Usuario: this.token.getUser().user._id,
   Cantidad: this.vuelosAgregados[index].asiento,
@@ -91,8 +92,9 @@ this.compraservice.create(compra).subscribe(
     this.router.navigate(['']);
   },
   error => console.log(error)
-)
-        }
+);
+        }*/
+      this.pagar=false;
       }
     });
 
